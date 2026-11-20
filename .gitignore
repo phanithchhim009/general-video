@@ -1,0 +1,10 @@
+# Only the GRC project is published; video-tool (FMS config, binaries, models) stays local.
+/*
+!/.gitignore
+!/GRC/
+GRC/video/_edge_profile/
+GRC/video/voice_old/
+GRC/video/preview/
+GRC/video/frames/
+*.log
+__pycache__/

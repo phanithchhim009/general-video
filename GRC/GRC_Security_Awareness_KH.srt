@@ -1,0 +1,223 @@
+1
+00:00:01,700 --> 00:00:11,100
+Hello everyone! I'm NTC, the assistant of Ms. Sorn Leakena from the Governance, Risk & Compliance team — GRC.
+
+2
+00:00:11,100 --> 00:00:19,370
+We are a cloud and internet service provider, so our customers' data is our most valuable asset.
+
+3
+00:00:19,370 --> 00:00:24,460
+Today I'll take you through information security awareness.
+
+4
+00:00:25,910 --> 00:00:30,560
+This is a refresher on information security awareness.
+
+5
+00:00:30,560 --> 00:00:38,300
+Some of you are here because you were flagged in our recent phishing simulation — and that's completely fine.
+
+6
+00:00:38,300 --> 00:00:46,680
+The goal isn't to call anyone out; it's to make sure we all recognize the same red flags before a real attacker tests us.
+
+7
+00:00:48,130 --> 00:01:06,420
+Here's what we'll cover: why this matters, best practices across four everyday risk areas, how we classify information, social engineering and phishing, email and Telegram security, and the ISO standards that support it all.
+
+8
+00:01:07,720 --> 00:01:19,260
+So what is this? It's teaching everyone — not just IT — how to recognize threats, protect sensitive data and build safe digital habits.
+
+9
+00:01:19,260 --> 00:01:27,720
+Security isn't only a technical problem; it's a people problem, and people are what today is about.
+
+10
+00:01:29,020 --> 00:01:37,020
+Four reasons this matters. One — it reduces human error, still the number one cause of breaches.
+
+11
+00:01:37,020 --> 00:01:41,940
+Two — it protects our data and our reputation with clients.
+
+12
+00:01:41,940 --> 00:01:47,020
+Three — it builds a culture where security is everyone's job.
+
+13
+00:01:47,020 --> 00:01:50,940
+Four — it helps us meet ISO 27001 and ISO 9001.
+
+14
+00:01:52,390 --> 00:02:02,290
+We'll walk through four common weak spots: password security, internet safety, clear desk and clear screen, and using your own devices.
+
+15
+00:02:02,290 --> 00:02:07,200
+These are the basics — but basics are exactly where most incidents start.
+
+16
+00:02:08,500 --> 00:02:16,330
+Simple rules: never share your password, change it regularly, and turn on 2FA wherever you can.
+
+17
+00:02:16,330 --> 00:02:31,180
+Use at least 12 characters, mix upper and lower case, numbers and symbols, use a different password for every account, and never use anything guessable like birthdays or pet names.
+
+18
+00:02:32,480 --> 00:02:40,910
+This chart shows why it matters. A weak password like 123456 can be cracked in seconds.
+
+19
+00:02:40,910 --> 00:02:48,070
+A good one takes months to years. A strong, random one can take centuries.
+
+20
+00:02:48,070 --> 00:02:53,400
+The difference is just a little effort, once, at setup.
+
+21
+00:02:54,700 --> 00:03:03,020
+HTTP versus HTTPS: without encryption, anything you type — even passwords — can be intercepted.
+
+22
+00:03:03,020 --> 00:03:09,150
+Always check for the padlock and https before entering sensitive data.
+
+23
+00:03:09,150 --> 00:03:14,310
+Download only from trusted sources and avoid untrusted ads.
+
+24
+00:03:14,310 --> 00:03:21,580
+Remember: you have to be right every time; an attacker only needs to be right once.
+
+25
+00:03:22,880 --> 00:03:29,320
+Five habits: lock your screen with Windows + L every time you step away.
+
+26
+00:03:29,320 --> 00:03:33,610
+Keep sensitive files and USB drives locked away.
+
+27
+00:03:33,610 --> 00:03:39,240
+Wipe whiteboards after meetings. Pick up printouts immediately.
+
+28
+00:03:39,240 --> 00:03:43,000
+And never write passwords on sticky notes.
+
+29
+00:03:44,300 --> 00:03:51,390
+Using a personal device for work? Install the required firewall and antivirus.
+
+30
+00:03:51,390 --> 00:03:57,480
+Keep the system and apps updated. MFA is mandatory — no exceptions.
+
+31
+00:03:57,480 --> 00:04:06,940
+Encrypt data at rest and in transit. If a device is lost or stolen, contact the IT Helpdesk immediately.
+
+32
+00:04:08,240 --> 00:04:12,170
+We classify information into four tiers:
+
+33
+00:04:12,170 --> 00:04:20,910
+Public, Internal, Confidential and Restricted — sensitivity increases from left to right.
+
+34
+00:04:20,910 --> 00:04:28,760
+The tier tells you how carefully it must be handled and who's allowed to see it.
+
+35
+00:04:30,060 --> 00:04:45,020
+Phishing is a scam sent by email, SMS or phone call, designed to steal credentials or install malware — usually by getting you to click a link and enter information, or download an attachment.
+
+36
+00:04:46,320 --> 00:04:54,200
+Five checks before trusting any email: verify the sender's real address, not just the name.
+
+37
+00:04:54,200 --> 00:04:57,490
+Watch for urgency, threats or rewards.
+
+38
+00:04:57,490 --> 00:05:01,300
+Don't click suspicious links or attachments.
+
+39
+00:05:01,300 --> 00:05:09,440
+Look for odd formatting or grammar. About 80% of unexpected 'urgent' emails could be phishing.
+
+40
+00:05:10,890 --> 00:05:21,840
+Never open files ending in .exe, .bat, .vbs, .html or .scr from an untrusted source — they are almost always malware.
+
+41
+00:05:21,840 --> 00:05:30,700
+Word, Excel, PowerPoint, JPEG and PDF are lower risk, but still verify the sender first.
+
+42
+00:05:32,150 --> 00:05:40,700
+Suspicious email? Do not click, and do not forward it to colleagues — that only spreads the risk.
+
+43
+00:05:40,700 --> 00:05:46,710
+Report it with the official reporting tool, which alerts IT and blocks the sender.
+
+44
+00:05:46,710 --> 00:05:48,560
+Then delete it.
+
+45
+00:05:49,860 --> 00:06:05,670
+Since a lot of internal communication happens on Telegram, check four settings today: turn on 2FA, end suspicious sessions, turn off automatic file download, and turn on a local passcode.
+
+46
+00:06:05,670 --> 00:06:12,100
+All four are in Settings → Privacy and Security, and take about two minutes.
+
+47
+00:06:13,400 --> 00:06:29,280
+ISO 27001 is the standard for information security management — often required by clients, it reduces our risk of breaches, from leadership commitment to continual improvement.
+
+48
+00:06:29,280 --> 00:06:39,120
+ISO 9001 is our quality standard: stronger client trust, fewer errors and an edge when bidding for contracts.
+
+49
+00:06:40,420 --> 00:06:45,270
+Bringing it together: strong, unique passwords with 2FA.
+
+50
+00:06:45,270 --> 00:06:49,940
+HTTPS-only browsing. A clear desk and a locked screen.
+
+51
+00:06:49,940 --> 00:06:55,740
+Updated, encrypted personal devices. Know your data classification.
+
+52
+00:06:55,740 --> 00:06:59,380
+Pause before clicking anything suspicious.
+
+53
+00:06:59,380 --> 00:07:02,060
+Secure your email and Telegram.
+
+54
+00:07:03,360 --> 00:07:10,830
+Thank you all for your attention. Remember: information security is everyone's responsibility.
+
+55
+00:07:10,830 --> 00:07:18,150
+If you have a question or see something suspicious, contact the GRC team or the IT Helpdesk.
+
+56
+00:07:18,150 --> 00:07:22,280
+This is NTC, Ms. Sorn Leakena's assistant — goodbye!

@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="km">
+<head>
+<meta charset="utf-8">
+<title>GRC Security Awareness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300..700&display=swap">
+<style>
+:root{--cy:#22D3EE;--cy2:#67E8F9;--tl:#14B8A6;--bl:#2563EB;--ink:#E6F1FF;--mut:#9FB4D3;--card:rgba(148,197,255,.07);--line:rgba(148,197,255,.18);
+      --ok:#10B981;--warn:#F59E0B;--bad:#EF4444;--pink:#FB7185}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#071226}
+body{font-family:'Kantumruy Pro','Khmer OS Siemreap',sans-serif;color:var(--ink)}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;
+  background:radial-gradient(1200px 700px at 85% 10%,rgba(37,99,235,.35),transparent 60%),
+             radial-gradient(900px 600px at 5% 95%,rgba(20,184,166,.22),transparent 60%),linear-gradient(160deg,#0A1A36,#071226 55%,#0B1F3D)}
+#bg{position:absolute;inset:0;opacity:.55}
+#brand{position:absolute;left:64px;top:34px;display:flex;align-items:center;gap:14px;font-size:22px;color:var(--mut);letter-spacing:.5px;z-index:5}
+#brand b{color:var(--cy2);font-weight:700}
+#brand .dot{width:10px;height:10px;border-radius:50%;background:var(--cy);box-shadow:0 0 14px var(--cy)}
+#progress{position:absolute;left:0;top:0;height:6px;width:0;background:linear-gradient(90deg,var(--tl),var(--cy),var(--bl));z-index:6}
+#subs{position:absolute;left:50%;bottom:40px;transform:translateX(-56%);max-width:1460px;padding:14px 30px;border-radius:16px;
+  background:rgba(3,9,22,.78);border:1px solid rgba(103,232,249,.25);font-family:'Segoe UI',Arial,sans-serif;font-size:33px;line-height:1.32;
+  color:#fff;text-align:center;z-index:40;opacity:0}
+.slide{position:absolute;inset:0;padding:110px 150px 190px 140px;display:flex;flex-direction:column;gap:34px;opacity:0;visibility:hidden}
+.chip{display:inline-flex;align-self:flex-start;align-items:center;gap:12px;padding:9px 20px;border-radius:999px;font-size:22px;font-weight:600;
+  letter-spacing:1px;color:#04231f;background:linear-gradient(90deg,var(--tl),var(--cy))}
+h1{font-size:66px;font-weight:700;line-height:1.25;color:#fff}
+h1 .hl{background:linear-gradient(90deg,var(--cy2),#93C5FD);-webkit-background-clip:text;background-clip:text;color:transparent}
+.en{font-family:'Segoe UI',Arial,sans-serif;font-size:30px;color:var(--cy2);font-weight:500;margin-top:-14px}
+.row{display:flex;gap:28px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px 30px;position:relative;overflow:hidden}
+.card h3{font-size:34px;font-weight:700;color:#fff;line-height:1.3}
+.card p{font-size:27px;color:var(--mut);line-height:1.45;margin-top:8px}
+.card .e{font-family:'Segoe UI',Arial,sans-serif;font-size:22px;color:var(--cy2);margin-top:6px}
+.ic{width:74px;height:74px;border-radius:20px;display:grid;place-items:center;background:rgba(34,211,238,.12);border:1px solid rgba(103,232,249,.35);margin-bottom:18px}
+.ic svg{width:42px;height:42px;stroke:var(--cy2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.num{position:absolute;right:24px;top:14px;font-size:64px;font-weight:700;color:rgba(103,232,249,.16)}
+.big{font-family:'Segoe UI',Arial,sans-serif;font-weight:800}
+.list{display:flex;flex-direction:column;gap:18px}
+.li{display:flex;align-items:center;gap:22px;padding:20px 26px;border-radius:20px;background:var(--card);border:1px solid var(--line);font-size:31px}
+.li .k{flex:none;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-weight:700;font-size:28px;color:#04231f;background:linear-gradient(135deg,var(--tl),var(--cy))}
+.li .k svg{width:30px;height:30px;stroke:#04231f;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.li small{display:block;font-family:'Segoe UI',Arial,sans-serif;font-size:21px;color:var(--cy2)}
+.quote{font-size:34px;line-height:1.5;padding:26px 34px;border-left:6px solid var(--cy);background:rgba(34,211,238,.07);border-radius:0 20px 20px 0}
+.kbd{display:inline-block;padding:10px 22px;border-radius:14px;background:#0f2a4d;border:2px solid #3b6ea8;border-bottom-width:6px;font-family:'Segoe UI',Arial;font-weight:700;font-size:38px;color:#fff}
+.bar-wrap{height:54px;border-radius:14px;background:rgba(255,255,255,.06);overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;border-radius:14px;display:flex;align-items:center;justify-content:flex-end;padding-right:20px;font-family:'Segoe UI',Arial;font-weight:700;font-size:26px;color:#04121f;white-space:nowrap}
+.tier{border-radius:26px;padding:28px;min-height:330px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line)}
+.tier h3{font-size:38px}
+.tier .e{font-family:'Segoe UI',Arial;font-size:24px;font-weight:700;letter-spacing:1px}
+.tier p{font-size:25px;line-height:1.45;color:#dbe7f7}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;font-family:'Segoe UI',Arial;font-size:28px;font-weight:700}
+.browser{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#0c1f3d}
+.browser .url{display:flex;align-items:center;gap:16px;padding:18px 24px;background:#102a52;font-family:'Consolas','Segoe UI',monospace;font-size:28px}
+.browser .url svg{width:34px;height:34px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.browser .body{padding:26px 28px;font-family:'Consolas',monospace;font-size:27px;line-height:1.6}
+.mail{border-radius:22px;background:#f8fafc;color:#0f172a;padding:28px 32px;font-family:'Segoe UI',Arial;font-size:25px;line-height:1.5;position:relative}
+.mail .h{border-bottom:1px solid #e2e8f0;padding-bottom:12px;margin-bottom:14px}
+.mark{position:absolute;width:46px;height:46px;border-radius:50%;background:var(--bad);color:#fff;font-weight:800;font-size:26px;display:grid;place-items:center;box-shadow:0 0 0 6px rgba(239,68,68,.25)}
+.phone{width:420px;border-radius:46px;border:10px solid #1e3a5f;background:#0d1b30;padding:30px 24px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.tg{display:flex;justify-content:space-between;align-items:center;padding:18px 6px;border-bottom:1px solid rgba(255,255,255,.08);font-family:'Segoe UI',Arial;font-size:24px}
+.sw{width:66px;height:38px;border-radius:999px;background:#334155;position:relative;flex:none}
+.sw i{position:absolute;top:4px;left:4px;width:30px;height:30px;border-radius:50%;background:#fff}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.step .ic{width:120px;height:120px;border-radius:34px;margin:0}
+.step .ic svg{width:62px;height:62px}
+.step .e{font-family:'Segoe UI',Arial,sans-serif;font-size:25px;color:var(--cy2)}
+.arrow{font-size:60px;color:var(--cy);align-self:center;margin-top:-50px}
+.file{padding:18px 26px;border-radius:16px;font-family:'Consolas',monospace;font-size:34px;font-weight:700}
+.tick{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ok);flex:none}
+.tick svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.center{align-items:center;justify-content:center;text-align:center}
+</style>
+</head>
+<body>
+<div id="stage">
+<svg id="bg" viewBox="0 0 1920 1080"></svg>
+<div id="progress"></div>
+<div id="brand"><span class="dot"></span><b>GRC</b> • Information Security Awareness</div>
+
+<!-- 0 intro -->
+<section class="slide" data-id="intro" style="padding-left:900px;justify-content:center;gap:28px">
+  <span class="chip a">GRC • Governance, Risk &amp; Compliance</span>
+  <h1 class="a" style="font-size:96px">សួស្តី! ខ្ញុំឈ្មោះ <span class="hl">NTC</span></h1>
+  <p class="a" style="font-size:38px;line-height:1.45">ជំនួយការរបស់<b style="color:var(--cy2)">កញ្ញា សន លក្ខិណា</b> • ក្រុម GRC</p>
+  <p class="en a" style="font-size:34px;margin-top:-10px">Hi! I'm NTC — assistant of Ms. Sorn Leakena, GRC team</p>
+  <div class="row a" style="gap:18px;margin-top:10px">
+    <span class="pill" style="background:rgba(34,211,238,.14);color:var(--cy2)"><i data-ic="cloud"></i>Cloud</span>
+    <span class="pill" style="background:rgba(37,99,235,.2);color:#93C5FD"><i data-ic="wifi"></i>Internet</span>
+    <span class="pill" style="background:rgba(16,185,129,.16);color:#6EE7B7"><i data-ic="shield"></i>Security</span>
+  </div>
+  <p class="a" style="font-size:32px;color:var(--mut);line-height:1.5;max-width:860px">ទិន្នន័យអតិថិជន គឺជាទ្រព្យសម្បត្តិដ៏មានតម្លៃបំផុតរបស់យើង។</p>
+</section>
+
+<!-- 1 title -->
+<section class="slide center" data-id="title" style="gap:26px">
+  <div class="ic pop" style="width:150px;height:150px;border-radius:44px"><i data-ic="shield" style="--s:84px"></i></div>
+  <span class="chip a" style="align-self:center">REFRESHER TRAINING</span>
+  <h1 class="a" style="font-size:80px">ការយល់ដឹងផ្នែក<span class="hl">សន្តិសុខព័ត៌មាន</span></h1>
+  <p class="en a" style="font-size:38px">Information Security Awareness</p>
+  <p class="a" style="font-size:30px;color:var(--mut)">រៀបចំដោយក្រុម GRC • Presented by the Governance, Risk &amp; Compliance Team</p>
+</section>
+
+<!-- 2 agenda -->
+<section class="slide" data-id="agenda" data-spread="1">
+  <span class="chip a">មាតិកា • AGENDA</span>
+  <h1 class="a">ខ្លឹមសារដែលយើងនឹង<span class="hl">ពិភាក្សា</span></h1>
+  <div class="grid3" style="margin-top:6px">
+    <div class="card a"><span class="num">01</span><div class="ic"><i data-ic="target"></i></div><h3>មូលហេតុសំខាន់</h3><p class="e">Why this matters</p></div>
+    <div class="card a"><span class="num">02</span><div class="ic"><i data-ic="key"></i></div><h3>ការអនុវត្តល្អបំផុត</h3><p class="e">Best practice • 4 risk areas</p></div>
+    <div class="card a"><span class="num">03</span><div class="ic"><i data-ic="layers"></i></div><h3>ការចាត់ថ្នាក់ព័ត៌មាន</h3><p class="e">Information classification</p></div>
+    <div class="card a"><span class="num">04</span><div class="ic"><i data-ic="hook"></i></div><h3>Social Engineering &amp; Phishing</h3><p class="e">How attackers trick people</p></div>
+    <div class="card a"><span class="num">05</span><div class="ic"><i data-ic="mail"></i></div><h3>អ៊ីមែល និង Telegram</h3><p class="e">Email &amp; Telegram security</p></div>
+    <div class="card a"><span class="num">06</span><div class="ic"><i data-ic="award"></i></div><h3>ស្តង់ដារ ISO</h3><p class="e">ISO 27001 &amp; ISO 9001</p></div>
+  </div>
+</section>
+
+<!-- 3 what -->
+<section class="slide" data-id="what" data-spread="1">
+  <span class="chip a">ផ្នែកទី ១ • INTRODUCTION</span>
+  <h1 class="a">តើវគ្គនេះ<span class="hl">ជាអ្វី?</span></h1>
+  <div class="grid3">
+    <div class="card a"><div class="ic"><i data-ic="alert"></i></div><h3>សម្គាល់ការគំរាមកំហែង</h3><p class="e">Recognize threats</p></div>
+    <div class="card a"><div class="ic"><i data-ic="lock"></i></div><h3>ការពារទិន្នន័យរសើប</h3><p class="e">Protect sensitive data</p></div>
+    <div class="card a"><div class="ic"><i data-ic="check"></i></div><h3>ទម្លាប់ឌីជីថលសុវត្ថិភាព</h3><p class="e">Build safe digital habits</p></div>
+  </div>
+  <div class="quote a">សន្តិសុខ មិនមែនគ្រាន់តែជាបញ្ហាបច្ចេកទេសទេ — វាគឺជា<b style="color:var(--cy2)">បញ្ហារបស់មនុស្ស</b>។<br><span class="en" style="font-size:26px">Security isn't only a technical problem — it's a people problem.</span></div>
+</section>
+
+<!-- 4 why -->
+<section class="slide" data-id="why" data-spread="1">
+  <span class="chip a">ផ្នែកទី ១ • WHY IT MATTERS</span>
+  <h1 class="a">មូលហេតុសំខាន់ៗ<span class="hl">ចំនួន ៤</span></h1>
+  <div class="grid4">
+    <div class="card a"><span class="num">1</span><div class="ic"><i data-ic="users"></i></div><h3>កាត់បន្ថយកំហុសមនុស្ស</h3><p class="e">Human error — the #1 cause of breaches</p></div>
+    <div class="card a"><span class="num">2</span><div class="ic"><i data-ic="shield"></i></div><h3>ការពារទិន្នន័យ និងកេរ្តិ៍ឈ្មោះ</h3><p class="e">Protect data &amp; reputation</p></div>
+    <div class="card a"><span class="num">3</span><div class="ic"><i data-ic="heart"></i></div><h3>វប្បធម៌សន្តិសុខ</h3><p class="e">Security is everyone's job</p></div>
+    <div class="card a"><span class="num">4</span><div class="ic"><i data-ic="award"></i></div><h3>អនុលោមតាម ISO</h3><p class="e">ISO 27001 &amp; ISO 9001</p></div>
+  </div>
+  <div class="row a" style="align-items:center;gap:30px;margin-top:6px">
+    <span class="big" style="font-size:110px;color:var(--cy2)">#<span data-count="1">1</span></span>
+    <p style="font-size:32px;line-height:1.45">កំហុសមនុស្ស នៅតែជាមូលហេតុលេខមួយ នៃការលេចធ្លាយទិន្នន័យ<br><span class="en" style="font-size:26px">Human error is still the #1 cause of data breaches industry-wide</span></p>
+  </div>
+</section>
+
+<!-- 5 best -->
+<section class="slide" data-id="best" data-spread="1">
+  <span class="chip a">ផ្នែកទី ២ • BEST PRACTICE</span>
+  <h1 class="a">ចំណុចខ្សោយទូទៅ<span class="hl">ចំនួន ៤</span></h1>
+  <div class="grid4">
+    <div class="card a"><div class="ic"><i data-ic="key"></i></div><h3>ពាក្យសម្ងាត់</h3><p class="e">Password security</p></div>
+    <div class="card a"><div class="ic"><i data-ic="globe"></i></div><h3>អ៊ីនធឺណិត</h3><p class="e">Internet safety</p></div>
+    <div class="card a"><div class="ic"><i data-ic="monitor"></i></div><h3>តុស្អាត អេក្រង់បិទ</h3><p class="e">Clear desk &amp; screen</p></div>
+    <div class="card a"><div class="ic"><i data-ic="phone"></i></div><h3>ឧបករណ៍ផ្ទាល់ខ្លួន</h3><p class="e">BYOD</p></div>
+  </div>
+  <div class="quote a">ទាំងនេះជាមូលដ្ឋានគ្រឹះ — ប៉ុន្តែឧប្បត្តិហេតុភាគច្រើន<b style="color:var(--cy2)"> កើតចេញពីទីនេះ</b>។<br><span class="en" style="font-size:26px">These are the basics — but basics are exactly where most incidents start.</span></div>
+</section>
+
+<!-- 6 password -->
+<section class="slide" data-id="password" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៣ • PASSWORD SECURITY</span>
+  <h1 class="a">វិធាននៃ<span class="hl">ពាក្យសម្ងាត់</span></h1>
+  <div class="grid2" style="gap:34px">
+    <div class="list">
+      <div class="li a"><span class="k"><i data-ic="x"></i></span><div>កុំចែករំលែកពាក្យសម្ងាត់<small>Never share your password</small></div></div>
+      <div class="li a"><span class="k"><i data-ic="refresh"></i></span><div>ប្តូរជាប្រចាំ<small>Change it regularly</small></div></div>
+      <div class="li a"><span class="k"><i data-ic="phone"></i></span><div>បើក 2FA គ្រប់ទីកន្លែង<small>Turn on 2FA wherever offered</small></div></div>
+    </div>
+    <div class="card a" style="display:flex;flex-direction:column;gap:18px">
+      <h3>រូបមន្តពាក្យសម្ងាត់ខ្លាំង <span class="e" style="font-size:22px">• Strong password recipe</span></h3>
+      <div class="row" style="flex-wrap:wrap;gap:14px">
+        <span class="pill a" style="background:rgba(34,211,238,.15);color:var(--cy2)"><span data-count="12">12</span>+ chars</span>
+        <span class="pill a" style="background:rgba(37,99,235,.22);color:#93C5FD">Aa</span>
+        <span class="pill a" style="background:rgba(20,184,166,.2);color:#5EEAD4">123</span>
+        <span class="pill a" style="background:rgba(251,113,133,.18);color:#FDA4AF">#@!</span>
+      </div>
+      <div class="li a" style="font-size:27px"><span class="k" style="background:var(--warn)"><i data-ic="alert"></i></span><div>ខុសគ្នាគ្រប់គណនី • គ្មានថ្ងៃកំណើត ឬឈ្មោះសត្វ<small>Unique per account • no birthdays or pet names</small></div></div>
+      <div class="bar-wrap a"><div class="bar" data-w="100" style="background:linear-gradient(90deg,var(--bad),var(--warn),var(--ok))">STRONG</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 crack -->
+<section class="slide" data-id="crack" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៣ • TIME TO CRACK</span>
+  <h1 class="a">ហេតុអ្វីពាក្យសម្ងាត់ខ្លាំង<span class="hl">សំខាន់?</span></h1>
+  <div class="list" style="gap:30px;margin-top:10px">
+    <div class="a"><p style="font-size:30px;margin-bottom:10px">ខ្សោយ <span class="en" style="font-size:24px">• Weak — "123456", "password"</span></p>
+      <div class="bar-wrap"><div class="bar" data-w="17" style="background:var(--bad);color:#fff">វិនាទី • seconds</div></div></div>
+    <div class="a"><p style="font-size:30px;margin-bottom:10px">ល្អ <span class="en" style="font-size:24px">• Good</span></p>
+      <div class="bar-wrap"><div class="bar" data-w="55" style="background:var(--warn)">ខែ – ឆ្នាំ • months – years</div></div></div>
+    <div class="a"><p style="font-size:30px;margin-bottom:10px">ខ្លាំង និងចៃដន្យ <span class="en" style="font-size:24px">• Strong &amp; random</span></p>
+      <div class="bar-wrap"><div class="bar" data-w="100" style="background:var(--ok)">សតវត្សរ៍ • centuries</div></div></div>
+  </div>
+  <div class="quote a">ភាពខុសគ្នា = ការខិតខំបន្តិច <b style="color:var(--cy2)">ម្តងគត់</b> ពេលកំណត់ដំបូង។ <span class="en" style="font-size:26px">Just a little effort, once, at setup.</span></div>
+</section>
+
+<!-- 8 internet -->
+<section class="slide" data-id="internet" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៤ • INTERNET SAFETY</span>
+  <h1 class="a"><span class="hl">HTTP</span> ទល់នឹង <span class="hl">HTTPS</span></h1>
+  <div class="grid2">
+    <div class="browser a"><div class="url" style="color:#FCA5A5"><svg viewBox="0 0 24 24" style="stroke:#EF4444"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg>http://login-example.com</div>
+      <div class="body"><span style="color:#94a3b8">user:</span> sokha<br><span style="color:#94a3b8">password:</span> <b style="color:#FCA5A5">Sokha@2026</b><br><span style="color:#EF4444">⚠ អាចលួចមើលបាន • can be intercepted</span></div></div>
+    <div class="browser a"><div class="url" style="color:#86EFAC"><svg viewBox="0 0 24 24" style="stroke:#10B981"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>https://login-example.com</div>
+      <div class="body"><span style="color:#94a3b8">data:</span> <b style="color:#86EFAC">9f#Kq2!xZ8…e7@Lm</b><br><span style="color:#94a3b8">status:</span> encrypted end-to-end<br><span style="color:#10B981">✔ អ៊ិនគ្រីប • encrypted</span></div></div>
+  </div>
+  <div class="row" style="gap:20px">
+    <div class="li a" style="flex:1"><span class="k"><i data-ic="lock"></i></span><div>ពិនិត្យសោ និង https<small>Check the padlock &amp; https</small></div></div>
+    <div class="li a" style="flex:1"><span class="k"><i data-ic="download"></i></span><div>ទាញយកពីប្រភពទុកចិត្ត<small>Trusted sources only</small></div></div>
+    <div class="li a" style="flex:1"><span class="k"><i data-ic="x"></i></span><div>កុំចុចពាណិជ្ជកម្មចម្លែក<small>Avoid untrusted ads</small></div></div>
+  </div>
+</section>
+
+<!-- 9 desk -->
+<section class="slide" data-id="desk" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៥ • CLEAR DESK &amp; SCREEN</span>
+  <h1 class="a">ទម្លាប់ល្អ<span class="hl">ទាំងប្រាំ</span></h1>
+  <div class="grid5">
+    <div class="card a" style="text-align:center"><div class="ic" style="margin:0 auto 16px"><i data-ic="monitor"></i></div><h3 style="font-size:28px">បិទអេក្រង់</h3><p class="e">Lock your screen</p></div>
+    <div class="card a" style="text-align:center"><div class="ic" style="margin:0 auto 16px"><i data-ic="usb"></i></div><h3 style="font-size:28px">ចាក់សោឯកសារ USB</h3><p class="e">Lock files &amp; USBs</p></div>
+    <div class="card a" style="text-align:center"><div class="ic" style="margin:0 auto 16px"><i data-ic="board"></i></div><h3 style="font-size:28px">លុបក្តារខៀន</h3><p class="e">Wipe whiteboards</p></div>
+    <div class="card a" style="text-align:center"><div class="ic" style="margin:0 auto 16px"><i data-ic="print"></i></div><h3 style="font-size:28px">យកឯកសារបោះពុម្ព</h3><p class="e">Collect printouts</p></div>
+    <div class="card a" style="text-align:center"><div class="ic" style="margin:0 auto 16px"><i data-ic="note"></i></div><h3 style="font-size:28px">គ្មានពាក្យសម្ងាត់លើក្រដាស</h3><p class="e">No sticky-note passwords</p></div>
+  </div>
+  <div class="row a" style="align-items:center;gap:22px;justify-content:center;margin-top:10px">
+    <span class="kbd">⊞ Windows</span><span style="font-size:52px;color:var(--cy)">+</span><span class="kbd">L</span>
+    <p style="font-size:30px;margin-left:20px">រាល់ពេលចាកចេញពីតុ <span class="en" style="font-size:26px">• every time you step away</span></p>
+  </div>
+</section>
+
+<!-- 10 byod -->
+<section class="slide" data-id="byod" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៦ • BYOD</span>
+  <h1 class="a">ឧបករណ៍<span class="hl">ផ្ទាល់ខ្លួន</span>សម្រាប់ការងារ</h1>
+  <div class="grid2" style="gap:22px">
+    <div class="li a"><span class="k"><i data-ic="shield"></i></span><div>Firewall និង Antivirus<small>Install required firewall / antivirus</small></div></div>
+    <div class="li a"><span class="k"><i data-ic="refresh"></i></span><div>ធ្វើបច្ចុប្បន្នភាពជានិច្ច<small>Keep the system &amp; apps updated</small></div></div>
+    <div class="li a"><span class="k"><i data-ic="key"></i></span><div>MFA ជាកាតព្វកិច្ច<small>MFA is mandatory — no exceptions</small></div></div>
+    <div class="li a"><span class="k"><i data-ic="lock"></i></span><div>អ៊ិនគ្រីបទិន្នន័យ<small>Encrypt data at rest &amp; in transit</small></div></div>
+  </div>
+  <div class="li a" style="background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.4)"><span class="k" style="background:var(--bad)"><i data-ic="alert"></i></span><div>បាត់ ឬត្រូវលួច? ទាក់ទង <b>IT Helpdesk</b> ភ្លាមៗ<small style="color:#FCA5A5">Lost or stolen? Contact the IT Helpdesk immediately</small></div></div>
+</section>
+
+<!-- 11 classify -->
+<section class="slide" data-id="classify" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៧ • INFORMATION CLASSIFICATION</span>
+  <h1 class="a">ព័ត៌មាន<span class="hl">បួនកម្រិត</span></h1>
+  <div class="grid4">
+    <div class="tier a" style="background:linear-gradient(180deg,rgba(16,185,129,.22),rgba(16,185,129,.05))"><span class="e" style="color:#6EE7B7">PUBLIC</span><h3>សាធារណៈ</h3><p>ការផ្សព្វផ្សាយផលិតផល ព័ត៌មានទូទៅ</p></div>
+    <div class="tier a" style="background:linear-gradient(180deg,rgba(37,99,235,.28),rgba(37,99,235,.06))"><span class="e" style="color:#93C5FD">INTERNAL</span><h3>ផ្ទៃក្នុង</h3><p>ព្រឹត្តិបត្រព័ត៌មាន ទម្រង់ឯកសារ</p></div>
+    <div class="tier a" style="background:linear-gradient(180deg,rgba(245,158,11,.26),rgba(245,158,11,.06))"><span class="e" style="color:#FCD34D">CONFIDENTIAL</span><h3>សម្ងាត់</h3><p>ទិន្នន័យបុគ្គលិក ព័ត៌មានប្រាក់ខែ</p></div>
+    <div class="tier a" style="background:linear-gradient(180deg,rgba(239,68,68,.28),rgba(239,68,68,.07))"><span class="e" style="color:#FCA5A5">RESTRICTED</span><h3>ហាមឃាត់</h3><p>License Key ផែនការយុទ្ធសាស្ត្រអាជីវកម្ម</p></div>
+  </div>
+  <div class="a" style="display:flex;align-items:center;gap:20px;font-family:'Segoe UI',Arial;font-size:26px;color:var(--mut)">
+    <div style="flex:1;height:12px;border-radius:999px;background:linear-gradient(90deg,#10B981,#2563EB,#F59E0B,#EF4444)"></div>កម្រិតរសើប • sensitivity →</div>
+</section>
+
+<!-- 12 phishing -->
+<section class="slide" data-id="phishing" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៨ • SOCIAL ENGINEERING</span>
+  <h1 class="a">តើ <span class="hl">Phishing</span> ជាអ្វី?</h1>
+  <div class="row" style="align-items:center;justify-content:space-between;margin-top:20px">
+    <div class="step a"><div class="ic"><i data-ic="mail"></i></div><h3 style="font-size:32px">អ៊ីមែល</h3><p class="e">Email</p></div>
+    <div class="step a"><div class="ic"><i data-ic="msg"></i></div><h3 style="font-size:32px">សារ SMS</h3><p class="e">SMS</p></div>
+    <div class="step a"><div class="ic"><i data-ic="call"></i></div><h3 style="font-size:32px">ទូរស័ព្ទ</h3><p class="e">Phone call</p></div>
+    <span class="arrow a">➜</span>
+    <div class="step a"><div class="ic" style="background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)"><i data-ic="key" style="--c:#FCA5A5"></i></div><h3 style="font-size:32px">លួចព័ត៌មានសម្ងាត់</h3><p class="e" style="color:#FCA5A5">Steal credentials</p></div>
+    <div class="step a"><div class="ic" style="background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)"><i data-ic="bug" style="--c:#FCA5A5"></i></div><h3 style="font-size:32px">ដំឡើងមេរោគ</h3><p class="e" style="color:#FCA5A5">Install malware</p></div>
+  </div>
+  <div class="quote a">ល្បិច៖ បញ្ចុះបញ្ចូលអ្នកឱ្យ <b style="color:var(--cy2)">ចុចតំណភ្ជាប់</b> ឬ <b style="color:var(--cy2)">ទាញយកឯកសារភ្ជាប់</b>។ <span class="en" style="font-size:26px">The trick: get you to click a link or download an attachment.</span></div>
+</section>
+
+<!-- 13 checks -->
+<section class="slide" data-id="checks" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៨ • FIVE CHECKS</span>
+  <h1 class="a">ពិនិត្យ<span class="hl">ប្រាំចំណុច</span> មុនទុកចិត្តអ៊ីមែល</h1>
+  <div class="row" style="gap:40px;align-items:flex-start">
+    <div class="mail a" style="width:760px;flex:none">
+      <div class="h"><b>From:</b> IT Support &lt;it-support@<span style="color:#dc2626">secure-helpdsk.co</span>&gt;<br><b>Subject:</b> <span style="color:#dc2626">URGENT!!</span> Your account will be closed today</div>
+      Dear user,<br>Your mailbox is full. <span style="color:#dc2626">Verify now</span> or lose access in 2 hours:<br>
+      <span style="color:#2563eb;text-decoration:underline">http://mail-verify-login.xyz/reset</span><br>Thank you, IT Departmant
+      <span class="mark pop" style="left:-20px;top:22px">1</span><span class="mark pop" style="right:20px;top:56px">2</span>
+      <span class="mark pop" style="right:40px;top:175px">3</span><span class="mark pop" style="left:340px;bottom:26px">4</span>
+    </div>
+    <div class="list" style="flex:1;gap:14px">
+      <div class="li a" style="font-size:27px"><span class="k">1</span><div>អាសយដ្ឋានអ្នកផ្ញើពិត<small>Verify the real sender address</small></div></div>
+      <div class="li a" style="font-size:27px"><span class="k">2</span><div>ពាក្យបន្ទាន់ ឬគំរាម<small>Urgency, threats, rewards</small></div></div>
+      <div class="li a" style="font-size:27px"><span class="k">3</span><div>កុំចុចតំណភ្ជាប់<small>No suspicious links or files</small></div></div>
+      <div class="li a" style="font-size:27px"><span class="k">4</span><div>កំហុសវេយ្យាករណ៍<small>Odd formatting or grammar</small></div></div>
+      <div class="li a" style="font-size:27px;background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.4)"><span class="big" style="font-size:52px;color:#FCA5A5;min-width:120px">≈<span data-count="80">80</span>%</span><div>អាចជា Phishing<small style="color:#FCA5A5">of unexpected "urgent" emails</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 files -->
+<section class="slide" data-id="files" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៨ • DANGEROUS FILES</span>
+  <h1 class="a">ឯកសារភ្ជាប់<span class="hl">ដែលគ្រោះថ្នាក់</span></h1>
+  <div class="card a" style="border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)">
+    <h3 style="color:#FCA5A5">កុំបើក • Never open from untrusted sources</h3>
+    <div class="row" style="gap:18px;margin-top:20px;flex-wrap:wrap">
+      <span class="file pop" style="background:#7f1d1d;color:#fecaca">.exe</span><span class="file pop" style="background:#7f1d1d;color:#fecaca">.bat</span>
+      <span class="file pop" style="background:#7f1d1d;color:#fecaca">.vbs</span><span class="file pop" style="background:#7f1d1d;color:#fecaca">.html</span>
+      <span class="file pop" style="background:#7f1d1d;color:#fecaca">.scr</span>
+    </div>
+  </div>
+  <div class="card a" style="border-color:rgba(245,158,11,.4);background:rgba(245,158,11,.07)">
+    <h3 style="color:#FCD34D">ហានិភ័យទាបជាង — តែត្រូវផ្ទៀងផ្ទាត់អ្នកផ្ញើ • Lower risk, still verify the sender</h3>
+    <div class="row" style="gap:18px;margin-top:20px;flex-wrap:wrap">
+      <span class="file pop" style="background:#1e3a8a;color:#bfdbfe">Word</span><span class="file pop" style="background:#14532d;color:#bbf7d0">Excel</span>
+      <span class="file pop" style="background:#7c2d12;color:#fed7aa">PowerPoint</span><span class="file pop" style="background:#334155;color:#e2e8f0">JPEG</span>
+      <span class="file pop" style="background:#7f1d1d;color:#fecaca">PDF</span>
+    </div>
+  </div>
+</section>
+
+<!-- 15 email -->
+<section class="slide" data-id="email" data-spread="1">
+  <span class="chip a">ផ្នែកទី ៩ • EMAIL SECURITY</span>
+  <h1 class="a">អ៊ីមែល<span class="hl">គួរឱ្យសង្ស័យ?</span></h1>
+  <div class="row" style="justify-content:space-between;align-items:flex-start;margin-top:30px">
+    <div class="step a" style="width:300px"><div class="ic" style="background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)"><i data-ic="cursor" style="--c:#FCA5A5"></i></div><h3 style="font-size:34px">កុំចុច</h3><p class="e">Do not click</p></div>
+    <span class="arrow a">➜</span>
+    <div class="step a" style="width:300px"><div class="ic" style="background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)"><i data-ic="forward" style="--c:#FCA5A5"></i></div><h3 style="font-size:34px">កុំបញ្ជូនបន្ត</h3><p class="e">Do not forward</p></div>
+    <span class="arrow a">➜</span>
+    <div class="step a" style="width:300px"><div class="ic" style="background:rgba(16,185,129,.16);border-color:rgba(16,185,129,.5)"><i data-ic="flag" style="--c:#6EE7B7"></i></div><h3 style="font-size:34px">រាយការណ៍</h3><p class="e">Report (alerts IT, blocks sender)</p></div>
+    <span class="arrow a">➜</span>
+    <div class="step a" style="width:300px"><div class="ic"><i data-ic="trash"></i></div><h3 style="font-size:34px">លុបចោល</h3><p class="e">Then delete</p></div>
+  </div>
+  <div class="quote a" style="margin-top:20px">ប្រុងប្រយ័ត្នជានិច្ច • រាយការណ៍ Phishing • ការពារទិន្នន័យរបស់យើង <span class="en" style="font-size:26px">Stay vigilant, report phishing, protect our data.</span></div>
+</section>
+
+<!-- 16 telegram -->
+<section class="slide" data-id="telegram" data-spread="1" style="flex-direction:row;align-items:center;gap:80px">
+  <div style="display:flex;flex-direction:column;gap:30px;flex:1">
+    <span class="chip a">ផ្នែកទី ១០ • TELEGRAM SECURITY</span>
+    <h1 class="a">ការកំណត់ <span class="hl">Telegram</span> ចំនួន ៤</h1>
+    <div class="list">
+      <div class="li a"><span class="k">1</span><div>ការផ្ទៀងផ្ទាត់ពីរជាន់<small>Two-step verification (2FA)</small></div></div>
+      <div class="li a"><span class="k">2</span><div>បញ្ឈប់សម័យគួរសង្ស័យ<small>End suspicious sessions</small></div></div>
+      <div class="li a"><span class="k">3</span><div>បិទការទាញយកស្វ័យប្រវត្តិ<small>Disable auto file download</small></div></div>
+      <div class="li a"><span class="k">4</span><div>បើកលេខសម្ងាត់ក្នុងកម្មវិធី<small>Turn on a local passcode</small></div></div>
+    </div>
+  </div>
+  <div class="phone a" style="flex:none">
+    <p style="font-family:'Segoe UI';font-size:22px;color:var(--mut)">Settings ›</p>
+    <p style="font-family:'Segoe UI';font-size:30px;font-weight:700;margin:6px 0 16px">Privacy and Security</p>
+    <div class="tg">Two-Step Verification<span class="sw tog"><i></i></span></div>
+    <div class="tg">Active Sessions<span style="color:#FCA5A5;font-weight:700" class="a">Terminate</span></div>
+    <div class="tg">Auto-Download Media<span class="sw tog" data-off="1"><i></i></span></div>
+    <div class="tg" style="border:0">Passcode Lock<span class="sw tog"><i></i></span></div>
+    <p class="a" style="font-family:'Segoe UI';font-size:22px;color:var(--cy2);margin-top:14px">⏱ ~2 minutes</p>
+  </div>
+</section>
+
+<!-- 17 iso -->
+<section class="slide" data-id="iso" data-spread="1">
+  <span class="chip a">ផ្នែកទី ១១ • ISO STANDARDS</span>
+  <h1 class="a">ស្តង់ដារ <span class="hl">ISO</span></h1>
+  <div class="grid2">
+    <div class="card a"><div class="ic"><i data-ic="shield"></i></div><h3>ISO 27001 — <span style="color:var(--cy2)">សន្តិសុខព័ត៌មាន</span></h3><p class="e">Information Security Management • often required by clients</p>
+      <div class="row" style="gap:10px;margin-top:22px;flex-wrap:wrap">
+        <span class="pill pop" style="background:rgba(34,211,238,.14);color:var(--cy2);font-size:24px">4 Context</span><span class="pill pop" style="background:rgba(34,211,238,.14);color:var(--cy2);font-size:24px">5 Leadership</span>
+        <span class="pill pop" style="background:rgba(34,211,238,.14);color:var(--cy2);font-size:24px">6 Planning</span><span class="pill pop" style="background:rgba(34,211,238,.14);color:var(--cy2);font-size:24px">7 Support</span>
+        <span class="pill pop" style="background:rgba(34,211,238,.14);color:var(--cy2);font-size:24px">8 Operation</span><span class="pill pop" style="background:rgba(34,211,238,.14);color:var(--cy2);font-size:24px">9 Evaluation</span>
+        <span class="pill pop" style="background:rgba(34,211,238,.14);color:var(--cy2);font-size:24px">10 Improvement</span></div></div>
+    <div class="card a"><div class="ic"><i data-ic="award"></i></div><h3>ISO 9001 — <span style="color:var(--cy2)">គុណភាព</span></h3><p class="e">Quality Management</p>
+      <div class="list" style="gap:12px;margin-top:20px">
+        <div class="row a" style="align-items:center;gap:16px;font-size:28px"><span class="tick"><i data-ic="check2"></i></span>ទំនុកចិត្តអតិថិជន <span class="e" style="font-size:22px">• client trust</span></div>
+        <div class="row a" style="align-items:center;gap:16px;font-size:28px"><span class="tick"><i data-ic="check2"></i></span>កំហុសតិច <span class="e" style="font-size:22px">• fewer errors</span></div>
+        <div class="row a" style="align-items:center;gap:16px;font-size:28px"><span class="tick"><i data-ic="check2"></i></span>ដេញថ្លៃបានល្អ <span class="e" style="font-size:22px">• edge in bids</span></div>
+      </div></div>
+  </div>
+</section>
+
+<!-- 18 summary -->
+<section class="slide" data-id="summary" data-spread="1">
+  <span class="chip a">ផ្នែកទី ១២ • SUMMARY</span>
+  <h1 class="a">សរុប<span class="hl">សេចក្តី</span></h1>
+  <div class="grid2" style="gap:18px 30px">
+    <div class="row a" style="align-items:center;gap:20px;font-size:30px"><span class="tick"><i data-ic="check2"></i></span><div>ពាក្យសម្ងាត់ខ្លាំង + 2FA<small style="display:block;font-family:'Segoe UI';font-size:21px;color:var(--cy2)">Strong, unique passwords with 2FA</small></div></div>
+    <div class="row a" style="align-items:center;gap:20px;font-size:30px"><span class="tick"><i data-ic="check2"></i></span><div>តែ HTTPS ប៉ុណ្ណោះ<small style="display:block;font-family:'Segoe UI';font-size:21px;color:var(--cy2)">HTTPS-only browsing</small></div></div>
+    <div class="row a" style="align-items:center;gap:20px;font-size:30px"><span class="tick"><i data-ic="check2"></i></span><div>តុស្អាត អេក្រង់បិទ<small style="display:block;font-family:'Segoe UI';font-size:21px;color:var(--cy2)">Clear desk, locked screen</small></div></div>
+    <div class="row a" style="align-items:center;gap:20px;font-size:30px"><span class="tick"><i data-ic="check2"></i></span><div>ឧបករណ៍ BYOD សុវត្ថិភាព<small style="display:block;font-family:'Segoe UI';font-size:21px;color:var(--cy2)">Updated, encrypted devices</small></div></div>
+    <div class="row a" style="align-items:center;gap:20px;font-size:30px"><span class="tick"><i data-ic="check2"></i></span><div>ស្គាល់កម្រិតទិន្នន័យ<small style="display:block;font-family:'Segoe UI';font-size:21px;color:var(--cy2)">Know your data classification</small></div></div>
+    <div class="row a" style="align-items:center;gap:20px;font-size:30px"><span class="tick"><i data-ic="check2"></i></span><div>ឈប់គិតមុនចុច<small style="display:block;font-family:'Segoe UI';font-size:21px;color:var(--cy2)">Pause before you click</small></div></div>
+    <div class="row a" style="align-items:center;gap:20px;font-size:30px"><span class="tick"><i data-ic="check2"></i></span><div>អ៊ីមែល និង Telegram សុវត្ថិភាព<small style="display:block;font-family:'Segoe UI';font-size:21px;color:var(--cy2)">Secure email &amp; Telegram</small></div></div>
+  </div>
+</section>
+
+<!-- 19 outro -->
+<section class="slide" data-id="outro" style="justify-content:center;gap:28px;padding-right:760px">
+  <span class="chip a">GRC • THANK YOU</span>
+  <h1 class="a" style="font-size:96px"><span class="hl">សូមអរគុណ!</span></h1>
+  <p class="en a" style="font-size:40px">Thank you for your attention</p>
+  <div class="quote a">សន្តិសុខព័ត៌មាន គឺជាទំនួលខុសត្រូវរបស់<b style="color:var(--cy2)">យើងទាំងអស់គ្នា</b>។<br><span class="en" style="font-size:26px">Information security is everyone's responsibility.</span></div>
+  <div class="row a" style="gap:18px">
+    <span class="pill" style="background:rgba(34,211,238,.14);color:var(--cy2)"><i data-ic="shield"></i>GRC Team • កញ្ញា សន លក្ខិណា</span>
+    <span class="pill" style="background:rgba(37,99,235,.2);color:#93C5FD"><i data-ic="call"></i>IT Helpdesk</span>
+  </div>
+</section>
+
+<div id="subs"></div>
+</div>
+<script>
+// Line icons (24x24, stroke): <i data-ic="name"></i> becomes an inline SVG.
+const ICONS = {
+  lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5.5 2 5.5 5"/>',
+  key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+  monitor:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+  phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  msg:'<path d="M4 5h16v11H8l-4 4z"/><path d="M8 10h8M8 13h5"/>',
+  call:'<path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+  bug:'<rect x="7" y="8" width="10" height="12" rx="5"/><path d="M12 8V5M3 13h4M17 13h4M4 19l3-2M20 19l-3-2M4 7l3 2M20 7l-3 2"/>',
+  check:'<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
+  check2:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+  alert:'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/>',
+  trash:'<path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14"/>',
+  flag:'<path d="M5 21V4h11l-2 4 2 4H5"/>',
+  forward:'<path d="M14 5l7 7-7 7M21 12H8a5 5 0 0 0-5 5"/>',
+  cursor:'<path d="M5 3l14 8-6 2-2 6z"/>',
+  cloud:'<path d="M7 18a4 4 0 0 1-.5-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1 0 9z"/>',
+  wifi:'<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/>',
+  refresh:'<path d="M20 11a8 8 0 0 0-14.5-4.5L3 9M3 4v5h5M4 13a8 8 0 0 0 14.5 4.5L21 15M21 20v-5h-5"/>',
+  usb:'<path d="M10 2h4v6h-4zM8 8h8v10a4 4 0 0 1-8 0z"/>',
+  print:'<path d="M6 9V3h12v6M6 17H4v-6h16v6h-2M7 14h10v7H7z"/>',
+  note:'<path d="M4 4h16v11l-5 5H4z"/><path d="M15 20v-5h5"/>',
+  board:'<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20l4-4 4 4"/>',
+  award:'<circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+  hook:'<path d="M12 3v10a4 4 0 1 1-8 0"/><path d="M12 3l3 3"/>',
+  heart:'<path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/>',
+  download:'<path d="M12 3v12M7 10l5 5 5-5M4 20h16"/>',
+  x:'<path d="M6 6l12 12M18 6L6 18"/>',
+};
+document.querySelectorAll('i[data-ic]').forEach(el => {
+  const c = el.style.getPropertyValue('--c').trim();
+  const s = el.style.getPropertyValue('--s').trim();
+  el.outerHTML = `<svg viewBox="0 0 24 24" ${s ? `style="width:${s};height:${s}"` : ''} ${c ? `stroke="${c}"` : ''} fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="icn">${ICONS[el.dataset.ic] || ''}</svg>`;
+});
+document.querySelectorAll('.pill svg, .k svg').forEach(s => { s.style.width = '30px'; s.style.height = '30px'; if (!s.getAttribute('stroke')) s.setAttribute('stroke', 'currentColor'); });
+document.querySelectorAll('.ic svg').forEach(s => { if (!s.getAttribute('stroke')) s.setAttribute('stroke', '#67E8F9'); });
+document.querySelectorAll('.k svg').forEach(s => s.setAttribute('stroke', '#04231f'));
+document.querySelectorAll('.tick svg').forEach(s => { s.setAttribute('stroke', '#fff'); s.setAttribute('stroke-width', '3.2'); });
+</script>
+</body>
+</html>
