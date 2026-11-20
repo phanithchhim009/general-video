@@ -1,0 +1,311 @@
+1
+00:00:02,700 --> 00:00:05,740
+One morning, Phanith is riding to work as usual.
+
+2
+00:00:05,740 --> 00:00:09,350
+Suddenly — bang! A tire bursts in the middle of the road.
+
+3
+00:00:09,350 --> 00:00:14,220
+There is no repair shop anywhere around, and Phanith doesn't know what to do.
+
+4
+00:00:15,520 --> 00:00:18,420
+But then Phanith remembers the HRC app.
+
+5
+00:00:18,420 --> 00:00:21,610
+Phanith opens the phone and taps "Help me".
+
+6
+00:00:21,610 --> 00:00:25,480
+In just a few minutes, the nearest mechanic arrives.
+
+7
+00:00:25,480 --> 00:00:28,900
+Fixed, with a clear price and an easy payment.
+
+8
+00:00:28,900 --> 00:00:34,840
+Phanith rides on safely. Help Road Cambodia — roadside help, any time, anywhere.
+
+9
+00:00:38,540 --> 00:00:42,590
+Hello! I'm HRC, the assistant of Help Road Cambodia.
+
+10
+00:00:42,590 --> 00:00:51,080
+When your motorbike or car breaks down on the road, the HRC app brings the nearest mechanic to where you are.
+
+11
+00:00:51,080 --> 00:01:00,660
+In this video I'll show you, step by step, how to use the customer app — from signing up to paying and rating the mechanic.
+
+12
+00:01:01,960 --> 00:01:05,280
+Before we start, let's look at the whole process.
+
+13
+00:01:05,280 --> 00:01:11,860
+One: sign up with your phone number. Two: request help by choosing the problem and your location.
+
+14
+00:01:11,860 --> 00:01:15,310
+Three: a mechanic accepts the job and comes to you.
+
+15
+00:01:15,310 --> 00:01:19,860
+Four: the mechanic checks and repairs after you agree to the price.
+
+16
+00:01:19,860 --> 00:01:23,720
+Five: pay by KHQR or in cash. And six: rate the mechanic.
+
+17
+00:01:25,170 --> 00:01:30,300
+Step one: install the HRC app on your phone and open it.
+
+18
+00:01:30,300 --> 00:01:34,860
+The intro screens show what the app can do — tap "Continue".
+
+19
+00:01:34,860 --> 00:01:41,440
+Then allow the app to use your location, so the mechanic can find you and the distance fee is correct.
+
+20
+00:01:41,440 --> 00:01:45,860
+And allow notifications, so you know right away when a mechanic accepts or arrives.
+
+21
+00:01:47,160 --> 00:01:52,270
+Next, sign in. Enter your phone number and tap "Get OTP code".
+
+22
+00:01:52,270 --> 00:01:55,900
+You will receive an SMS with a 6-digit code.
+
+23
+00:01:55,900 --> 00:02:04,480
+Type the code, then tap "Verify". If you use a foreign phone number, you can also sign in with Telegram.
+
+24
+00:02:05,930 --> 00:02:08,750
+The first time you sign in, fill in a few details.
+
+25
+00:02:08,750 --> 00:02:13,580
+Type your name and choose the vehicle you use most: motorbike, tuk-tuk or car.
+
+26
+00:02:13,580 --> 00:02:17,220
+Tick to accept the terms of use, then tap "Start".
+
+27
+00:02:18,520 --> 00:02:24,590
+This is the home screen. The big orange "Help me" button in the middle calls the mechanic nearest to you.
+
+28
+00:02:24,590 --> 00:02:29,850
+Below are the quick services — tire, engine, fuel and tow — that you can tap straight away.
+
+29
+00:02:29,850 --> 00:02:33,850
+The badge at the top tells you whether day or night prices apply now.
+
+30
+00:02:33,850 --> 00:02:37,720
+And the bar at the bottom takes you to History, Alerts and Account.
+
+31
+00:02:39,020 --> 00:02:43,110
+When you tap "Help me", the "Request help" page opens with three steps.
+
+32
+00:02:43,110 --> 00:02:50,890
+First, choose your vehicle. Then choose the problem, such as a flat tire, an inner tube change, an engine that won't start, or no fuel.
+
+33
+00:02:50,890 --> 00:02:53,940
+Each service shows its starting price under its name.
+
+34
+00:02:53,940 --> 00:02:54,860
+Then tap "Next".
+
+35
+00:02:56,160 --> 00:02:58,820
+The third step is to confirm your location.
+
+36
+00:02:58,820 --> 00:03:02,110
+The app uses GPS to put the orange pin where you are.
+
+37
+00:03:02,110 --> 00:03:11,090
+You can write a note for the mechanic, for example "in front of the pagoda" or "next to the fuel station", and you can take a photo of the place.
+
+38
+00:03:11,090 --> 00:03:17,160
+Then tap "Confirm location". Note that the service works only inside the areas where HRC operates.
+
+39
+00:03:18,610 --> 00:03:21,820
+Before you call a mechanic, you see a clear price estimate.
+
+40
+00:03:21,820 --> 00:03:29,340
+This box shows the most you will pay for the service — for example, a motorbike tire patch by day costs no more than $4.50.
+
+41
+00:03:29,340 --> 00:03:37,100
+The starting price includes 5 km of distance; parts are not included, and the mechanic must ask for your approval first.
+
+42
+00:03:37,100 --> 00:03:41,150
+You can switch the payment method between cash and KHQR.
+
+43
+00:03:41,150 --> 00:03:43,100
+When ready, tap "Call a mechanic now".
+
+44
+00:03:44,550 --> 00:03:48,150
+Now the system is looking for the mechanic nearest to you.
+
+45
+00:03:48,150 --> 00:03:54,840
+Each mechanic has 30 seconds to accept the job; if they don't, the system automatically offers it to the next one.
+
+46
+00:03:54,840 --> 00:03:58,160
+While it is searching, you can cancel for free.
+
+47
+00:03:59,610 --> 00:04:04,710
+When a mechanic accepts, you see their name, rating and verified badge.
+
+48
+00:04:04,710 --> 00:04:09,910
+On the map you can follow the mechanic on the way and the estimated arrival time.
+
+49
+00:04:09,910 --> 00:04:12,940
+Tap "Call" or "Chat" to talk to the mechanic.
+
+50
+00:04:12,940 --> 00:04:18,100
+And the "Tell family" button lets you share this trip with your loved ones.
+
+51
+00:04:19,400 --> 00:04:25,210
+When the mechanic arrives, they take a photo before the repair, to protect both you and the mechanic.
+
+52
+00:04:25,210 --> 00:04:28,660
+If parts are needed, the mechanic sends you a price request.
+
+53
+00:04:28,660 --> 00:04:32,800
+You see the photo, the reason, the price of each part and the new total.
+
+54
+00:04:32,800 --> 00:04:36,770
+If you agree, tap "Approve". If not, tap "Decline" and give a reason.
+
+55
+00:04:36,770 --> 00:04:39,880
+The mechanic cannot change any part until you approve.
+
+56
+00:04:41,330 --> 00:04:43,580
+When the repair is done, it's time to pay.
+
+57
+00:04:43,580 --> 00:04:50,440
+If you chose KHQR, scan this QR code with ABA or any other bank.
+
+58
+00:04:50,440 --> 00:04:54,830
+You can also save the QR or tap "Open bank app".
+
+59
+00:04:54,830 --> 00:04:57,530
+The system confirms the payment automatically.
+
+60
+00:04:57,530 --> 00:05:02,140
+If you pay in cash, hand the money to the mechanic, and the mechanic confirms it in the app.
+
+61
+00:05:03,590 --> 00:05:06,000
+The last step is to rate the mechanic.
+
+62
+00:05:06,000 --> 00:05:13,890
+Tap one to five stars, pick what was good, such as "fast" or "polite", add a comment if you like, then tap "Submit rating".
+
+63
+00:05:13,890 --> 00:05:19,520
+You then get a receipt with photos before and after the repair, and the full price details.
+
+64
+00:05:19,520 --> 00:05:24,200
+You can download it as a PDF, or report a problem if something is wrong.
+
+65
+00:05:25,500 --> 00:05:32,840
+Want to cancel a request? You can cancel for free while the system is searching, or within 2 minutes after a mechanic accepts.
+
+66
+00:05:32,840 --> 00:05:40,120
+After that, or once the mechanic has arrived, a small cancellation fee may apply, and it is shown clearly before you confirm.
+
+67
+00:05:40,120 --> 00:05:44,140
+This money goes to the mechanic for the time spent travelling to you.
+
+68
+00:05:45,440 --> 00:05:54,410
+Your safety comes first. In an emergency, open the Emergency page and hold the red SOS button for 2 seconds.
+
+69
+00:05:54,410 --> 00:06:02,140
+The HRC team and your emergency contacts receive your location, and HRC calls you right away.
+
+70
+00:06:02,140 --> 00:06:09,200
+You can also call the police on 117, an ambulance on 119, or the fire service on 118.
+
+71
+00:06:10,650 --> 00:06:16,200
+In the History tab you can see every job you have requested, with its price and status.
+
+72
+00:06:16,200 --> 00:06:20,770
+Tap any job to see the details and the receipt, or to report a problem.
+
+73
+00:06:20,770 --> 00:06:29,260
+And if you need help, go to Account, then Help, to read the common questions or call the HRC hotline, open 24 hours a day.
+
+74
+00:06:30,560 --> 00:06:41,220
+To sum up, using the HRC app takes just six steps: sign up, request help, wait for the mechanic, agree to the price and repair, pay, and rate.
+
+75
+00:06:41,220 --> 00:06:48,200
+Remember: the price is always shown first, and no part is ever changed without your approval.
+
+76
+00:06:49,500 --> 00:06:56,850
+Thank you for watching! Whenever you have trouble on the road, just open the app and tap "Help me".
+
+77
+00:06:56,850 --> 00:07:00,200
+HRC is here to help you — any time, anywhere.
+
+78
+00:07:00,200 --> 00:07:00,940
+Ride safe!

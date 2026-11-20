@@ -1,0 +1,367 @@
+1
+00:00:01,700 --> 00:00:09,580
+Hello everyone! I'm a robot assistant of the Governance, Risk and Compliance team — GRC.
+
+2
+00:00:09,580 --> 00:00:15,670
+Today I'll take you through Information Security Awareness Training.
+
+3
+00:00:15,670 --> 00:00:20,420
+Our goal: protecting our digital workplace, together.
+
+4
+00:00:21,720 --> 00:00:27,020
+Here is what we will cover. One: introduction and why it matters.
+
+5
+00:00:27,020 --> 00:00:30,110
+Two: best practice for cyber security.
+
+6
+00:00:30,110 --> 00:00:35,000
+Three: information classification. Four: social engineering.
+
+7
+00:00:35,000 --> 00:00:38,670
+Five: email and Telegram security guidelines.
+
+8
+00:00:38,670 --> 00:00:41,440
+And finally, a summary and a quiz.
+
+9
+00:00:42,740 --> 00:00:47,130
+What is information security awareness training?
+
+10
+00:00:47,130 --> 00:00:53,270
+It's an educational program that helps every employee spot threats.
+
+11
+00:00:53,270 --> 00:00:57,660
+Keep data secure. And build safe digital habits.
+
+12
+00:00:58,960 --> 00:01:09,030
+Why does it matter? One: it reduces human error and cyber attacks, helping employees avoid phishing, scams and security mistakes.
+
+13
+00:01:09,030 --> 00:01:15,750
+Two: it builds a security culture, because cybersecurity is everyone's responsibility.
+
+14
+00:01:15,750 --> 00:01:21,840
+Three: it protects our assets, preventing data leaks and keeping client trust.
+
+15
+00:01:21,840 --> 00:01:26,760
+Four: it meets compliance requirements such as ISO and PCI DSS.
+
+16
+00:01:28,210 --> 00:01:32,820
+Let's start with best practice for cyber security.
+
+17
+00:01:32,820 --> 00:01:41,860
+There are four common weak spots: password security, internet safety, clear desk and clear screen, and bring your own device — BYOD.
+
+18
+00:01:41,860 --> 00:01:45,540
+Most incidents start right here, with the basics.
+
+19
+00:01:46,840 --> 00:01:54,980
+Number one: password security. Never share your password, change it regularly, and turn on two-factor authentication — 2FA.
+
+20
+00:01:54,980 --> 00:02:00,210
+When you create a password, use at least 12 characters — the longer the better.
+
+21
+00:02:00,210 --> 00:02:04,310
+Mix upper and lower case letters, numbers and special symbols.
+
+22
+00:02:04,310 --> 00:02:07,090
+Use a different password for each account.
+
+23
+00:02:07,090 --> 00:02:11,720
+And avoid personal information like birthdays, pet names or addresses.
+
+24
+00:02:13,020 --> 00:02:22,180
+Look at the difference. A very weak password like qwerty or 123456 can be cracked in seconds to minutes.
+
+25
+00:02:22,180 --> 00:02:25,530
+A good password takes months to years.
+
+26
+00:02:25,530 --> 00:02:33,980
+A strong password can take centuries. The difference is just a little effort when you create it.
+
+27
+00:02:35,280 --> 00:02:44,430
+Number two: internet safety. On an HTTP website the data is not encrypted, so an attacker can read your password.
+
+28
+00:02:44,430 --> 00:02:49,780
+HTTPS encrypts the data, so the attacker only sees scrambled text.
+
+29
+00:02:49,780 --> 00:02:53,430
+Always make sure a website starts with https.
+
+30
+00:02:53,430 --> 00:03:03,550
+Don't share sensitive information on public platforms, download files only from trusted sources, and don't click unknown ads.
+
+31
+00:03:03,550 --> 00:03:10,760
+Remember: you have to be right all the time, but an attacker only needs to be right once.
+
+32
+00:03:12,210 --> 00:03:14,770
+Number three: clear desk and clear screen.
+
+33
+00:03:14,770 --> 00:03:19,850
+Lock your computer with Windows + L every time you leave your desk.
+
+34
+00:03:19,850 --> 00:03:24,220
+Keep sensitive files and USB drives in locked drawers or cabinets.
+
+35
+00:03:24,220 --> 00:03:27,890
+Erase whiteboards and clear your notes after meetings.
+
+36
+00:03:27,890 --> 00:03:29,710
+Pick up printed documents immediately.
+
+37
+00:03:29,710 --> 00:03:33,380
+And never write passwords on paper or sticky notes!
+
+38
+00:03:34,680 --> 00:03:41,670
+Number four: bring your own device. Install the required firewall, antivirus or EDR.
+
+39
+00:03:41,670 --> 00:03:45,080
+Update the OS and applications regularly.
+
+40
+00:03:45,080 --> 00:03:49,740
+MFA is always required when accessing company resources.
+
+41
+00:03:49,740 --> 00:03:58,720
+Encrypt data at rest and in transit. And if a device is lost or stolen, contact the IT Helpdesk immediately.
+
+42
+00:04:00,020 --> 00:04:08,620
+Next, information classification. Information is classified into four levels, with sensitivity increasing from low to critical.
+
+43
+00:04:08,620 --> 00:04:13,910
+Public: product promotions and news. Internal: newsletters and form templates.
+
+44
+00:04:13,910 --> 00:04:18,650
+Confidential: medical information, department data and staff salaries.
+
+45
+00:04:18,650 --> 00:04:24,340
+And Restricted, the most sensitive: license keys, profit figures and business plans.
+
+46
+00:04:25,640 --> 00:04:32,220
+Now, social engineering. Phishing is a type of online scam, usually sent by email, SMS or phone call.
+
+47
+00:04:32,220 --> 00:04:39,060
+Its purpose is to steal your credentials and sensitive information, or to install malware and ransomware.
+
+48
+00:04:39,060 --> 00:04:44,920
+It tricks you into clicking a link and entering information, or downloading an attachment.
+
+49
+00:04:46,220 --> 00:04:51,450
+Let's look at a phishing email. One: an urgent, alarming subject.
+
+50
+00:04:51,450 --> 00:04:56,770
+Two: a fake email address — look, it ends in dot con, not dot com.
+
+51
+00:04:56,770 --> 00:05:00,960
+Three: a phishing link that leads to a fake website.
+
+52
+00:05:00,960 --> 00:05:11,270
+So verify the sender, beware of urgency or threats, don't click suspicious links or attachments, and check for grammar mistakes.
+
+53
+00:05:11,270 --> 00:05:16,420
+When you see these signs, it is about 80% likely to be phishing.
+
+54
+00:05:17,720 --> 00:05:26,060
+Email security means protecting email accounts, communication and data from unauthorized access, phishing, malware and scams.
+
+55
+00:05:26,060 --> 00:05:31,400
+When a suspicious email arrives: do not click its links or open its attachments.
+
+56
+00:05:31,400 --> 00:05:38,340
+Do not forward it to colleagues. Report it with the official reporting tool, to alert the security team.
+
+57
+00:05:38,340 --> 00:05:40,080
+Then delete it completely.
+
+58
+00:05:41,380 --> 00:05:50,330
+Some attachments are very high risk. Never open untrusted files ending in .exe, .bat, .vbs, .html or .scr.
+
+59
+00:05:50,330 --> 00:05:59,700
+Word, Excel, PowerPoint, images and PDF files are lower risk — but still check the source before you open them.
+
+60
+00:06:01,000 --> 00:06:05,480
+Now let's make your Telegram account more secure and private.
+
+61
+00:06:05,480 --> 00:06:09,810
+There are four key settings: turn on two-step verification.
+
+62
+00:06:09,810 --> 00:06:13,630
+Check for suspicious devices and end those sessions.
+
+63
+00:06:13,630 --> 00:06:18,250
+Turn off automatic file download. And turn on a local passcode.
+
+64
+00:06:18,250 --> 00:06:24,200
+I'll show you each one step by step — the same settings are on your computer too.
+
+65
+00:06:25,500 --> 00:06:31,070
+First, turn on two-step verification. Go to Settings and tap Privacy and Security.
+
+66
+00:06:31,070 --> 00:06:36,360
+Tap Two-Step Verification. Type a new password, then type it again to confirm.
+
+67
+00:06:36,360 --> 00:06:43,090
+Then add a recovery email — highly recommended — so you can get the password back if you forget it.
+
+68
+00:06:43,090 --> 00:06:47,500
+Now a thief can't get into your account, even with your SMS code.
+
+69
+00:06:48,800 --> 00:06:55,120
+Second, check for suspicious devices. In Settings, tap Devices to see all your sessions.
+
+70
+00:06:55,120 --> 00:07:00,590
+Check carefully: a device or location you don't recognize is a warning sign.
+
+71
+00:07:00,590 --> 00:07:05,760
+Tap Terminate All Other Sessions to end all other sessions, and confirm.
+
+72
+00:07:07,210 --> 00:07:09,830
+Third, turn off automatic file download.
+
+73
+00:07:09,830 --> 00:07:12,950
+Go to Settings and tap Data and Storage.
+
+74
+00:07:12,950 --> 00:07:19,270
+Under Automatic Media Download, switch off automatic download for photos, videos and files.
+
+75
+00:07:19,270 --> 00:07:24,660
+That way, unknown files are never saved to your device without you knowing.
+
+76
+00:07:26,110 --> 00:07:30,180
+Fourth, turn on a local passcode — recommended for privacy.
+
+77
+00:07:30,180 --> 00:07:35,540
+Go to Settings, then Privacy and Security, and tap Passcode and Face ID.
+
+78
+00:07:35,540 --> 00:07:39,130
+Tap Turn Passcode On and type your passcode twice.
+
+79
+00:07:39,130 --> 00:07:45,040
+Now, even if someone holds your phone, they can't open your Telegram.
+
+80
+00:07:46,490 --> 00:07:51,960
+To sum up: 12+ character passwords, unique per account, with 2FA.
+
+81
+00:07:51,960 --> 00:07:57,180
+HTTPS only, and no sensitive info on public sites.
+
+82
+00:07:57,180 --> 00:08:00,460
+Lock your screen and secure documents when away.
+
+83
+00:08:00,460 --> 00:08:03,600
+Keep devices updated, and report a loss immediately.
+
+84
+00:08:03,600 --> 00:08:07,380
+Know your data: Public, Internal, Confidential, Restricted.
+
+85
+00:08:07,380 --> 00:08:10,900
+Pause before you click, verify, and report anything odd.
+
+86
+00:08:10,900 --> 00:08:15,790
+Enable MFA, check sessions, and don't auto-trust attachments.
+
+87
+00:08:15,790 --> 00:08:20,220
+And compliance protects client trust and our business.
+
+88
+00:08:21,520 --> 00:08:28,560
+Now it's time to test your knowledge! Scan this QR code to take the quiz.
+
+89
+00:08:28,560 --> 00:08:29,520
+Good luck!
+
+90
+00:08:30,820 --> 00:08:38,260
+Thank you all for your attention! Remember: information security is everyone's responsibility.
+
+91
+00:08:38,260 --> 00:08:47,450
+If you have any questions or need more clarification, contact the GRC team by the phone numbers or emails on screen.
+
+92
+00:08:47,450 --> 00:08:50,220
+I'm the GRC team's robot — goodbye!

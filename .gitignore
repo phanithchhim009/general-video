@@ -1,10 +1,17 @@
-# Only the GRC project is published; video-tool (FMS config, binaries, models) stays local.
+# Published: GRC, HRC-Customer-Guide and SAT-Video (2026-11-20, the user chose to publish all three publicly).
+# video-tool (FMS config, binaries, models) stays local.
 /*
 !/.gitignore
 !/GRC/
-GRC/video/_edge_profile/
-GRC/video/voice_old/
-GRC/video/preview/
-GRC/video/frames/
+!/HRC-Customer-Guide/
+!/SAT-Video/
+# render leftovers
+**/_edge_profile/
+**/_frames/
+**/preview/
+**/voice_old/
+**/_video.html
+**/_bang.wav
+**/_engine.wav
 *.log
 __pycache__/

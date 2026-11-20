@@ -1,0 +1,23 @@
+{
+  "story1": 11.47,
+  "story2": 19.25,
+  "intro": 21.94,
+  "flow": 21.55,
+  "start": 20.74,
+  "login": 16.83,
+  "setup": 11.42,
+  "home": 19.17,
+  "request": 15.83,
+  "location": 20.92,
+  "price": 24.41,
+  "search": 13.76,
+  "enroute": 18.74,
+  "quote": 20.47,
+  "pay": 22.6,
+  "rate": 20.82,
+  "cancel": 18.63,
+  "sos": 23.53,
+  "history": 18.76,
+  "recap": 17.52,
+  "outro": 11.33
+}

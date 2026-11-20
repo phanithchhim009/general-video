@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="km">
+<head>
+<meta charset="utf-8">
+<title>HRC Customer App Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300..700&display=swap">
+<style>
+:root{--or:#E8590C;--or2:#FB923C;--or3:#FDBA74;--navy:#1F3A5F;--ink:#EEF3FA;--mut:#A3B4CB;--ok:#22C55E;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0B1626}
+body{font-family:'Kantumruy Pro','Khmer OS Siemreap',sans-serif;color:var(--ink)}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;
+  background:radial-gradient(1300px 800px at 85% -10%,rgba(232,89,12,.16),transparent 60%),
+             radial-gradient(1100px 700px at -5% 110%,rgba(46,75,112,.45),transparent 65%),linear-gradient(180deg,#0E1B2E,#0B1626 60%,#0C1829)}
+#bg{position:absolute;inset:0;opacity:.5}
+#progress{position:absolute;left:0;top:0;height:6px;width:0;background:linear-gradient(90deg,#C2410C,var(--or),var(--or3));z-index:60}
+#brand{position:absolute;left:130px;top:40px;display:flex;align-items:center;gap:14px;font-size:22px;color:var(--mut);z-index:5}
+#brand img{width:46px;height:46px;border-radius:12px;background:#fff;padding:3px;object-fit:contain}
+#brand b{color:#fff;font-family:'Segoe UI',Arial;font-weight:700;letter-spacing:.3px}
+#flowbar{position:absolute;left:130px;top:112px;display:flex;align-items:center;gap:0;z-index:5}
+#flowbar .fp{display:flex;align-items:center;gap:8px;padding:7px 16px 7px 8px;border-radius:999px;font-size:19px;font-weight:600;color:#7F93AE;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+#flowbar .fp i{font-style:normal;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'Segoe UI';font-size:15px;font-weight:800;background:rgba(255,255,255,.08)}
+#flowbar .fp.done{color:#BBF7D0;background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3)}
+#flowbar .fp.done i{background:var(--ok);color:#052e16}
+#flowbar .fp.cur{color:#fff;background:var(--or);border-color:var(--or2);box-shadow:0 6px 22px rgba(232,89,12,.45)}
+#flowbar .fp.cur i{background:#fff;color:var(--or)}
+#flowbar .ln{width:18px;height:3px;background:rgba(255,255,255,.12)}
+#subs{position:absolute;bottom:34px;padding:12px 26px;border-radius:16px;background:rgba(5,12,24,.82);border:1px solid rgba(253,186,116,.28);
+  font-family:'Segoe UI',Arial,sans-serif;font-size:29px;line-height:1.32;color:#fff;text-align:center;z-index:50;opacity:0}
+#subs.left{left:130px;width:960px}
+#subs.center{left:50%;transform:translateX(-50%);max-width:1500px;width:max-content}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden}
+/* ---- left column of the step slides */
+.col{position:absolute;left:130px;top:196px;width:960px;display:flex;flex-direction:column;gap:22px}
+.chip{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 20px;border-radius:999px;font-size:21px;font-weight:700;letter-spacing:.5px;color:#fff;background:linear-gradient(90deg,#C2410C,var(--or))}
+.chip.tip{background:linear-gradient(90deg,#1D4ED8,#2563EB)}
+.chip.red{background:linear-gradient(90deg,#B91C1C,#DC2626)}
+h1{font-size:62px;font-weight:700;line-height:1.22;color:#fff}
+h1 .ac{color:var(--or2)}
+.en{font-family:'Segoe UI',Arial,sans-serif;font-size:27px;color:var(--or3);font-weight:500;margin-top:-10px}
+.list{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.li{display:flex;align-items:center;gap:20px;padding:16px 22px;border-radius:20px;background:var(--card);border:1px solid var(--line);font-size:28px;line-height:1.4}
+.li .k{flex:none;width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-family:'Segoe UI';font-weight:800;font-size:25px;color:#fff;background:linear-gradient(135deg,var(--or2),var(--or))}
+.li b{color:var(--or3);font-weight:700}
+.li small{display:block;font-family:'Segoe UI',Arial,sans-serif;font-size:19px;color:var(--mut);margin-top:2px}
+/* ---- phone */
+.phone{position:absolute;left:1170px;top:66px;width:440px;height:928px}
+.phone-in{position:absolute;inset:0;border-radius:60px;background:linear-gradient(145deg,#2A3B55,#0B1220 40%,#1C2A40);padding:14px;
+  box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 2px rgba(255,255,255,.08) inset}
+.phone-in:before{content:'';position:absolute;right:-5px;top:210px;width:5px;height:90px;border-radius:3px;background:#22324A}
+.screen{position:relative;width:412px;height:900px;border-radius:46px;overflow:hidden;background:#fff}
+.screen .scr{position:absolute;inset:0;background:#fff;will-change:transform}
+.screen .scr img{width:412px;height:900px;display:block}
+.notch{position:absolute;left:50%;top:10px;width:110px;height:30px;margin-left:-55px;border-radius:20px;background:#0B1220;z-index:20}
+.ov{position:absolute;pointer-events:none}
+.hl{border:4px solid var(--or);border-radius:16px;z-index:12}
+.finger{width:64px;height:64px;z-index:16;margin:-6px 0 0 -29px}
+.finger svg{width:64px;height:64px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+.ripple{width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50%;background:rgba(232,89,12,.35);border:3px solid rgba(232,89,12,.8);z-index:15}
+.typ{background:#fff;color:#1F3A5F;font-family:'Kantumruy Pro','Segoe UI',sans-serif;font-size:17px;display:flex;align-items:center;white-space:pre;z-index:11}
+.typ .car{display:inline-block;width:2px;height:22px;background:var(--or);margin-left:2px}
+.ring{border-radius:50%;border:3px solid rgba(232,89,12,.75);background:rgba(232,89,12,.10);z-index:10}
+.dot{width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--or);box-shadow:0 0 0 6px rgba(232,89,12,.3),0 0 18px var(--or);z-index:11}
+.scan{height:4px;background:linear-gradient(90deg,transparent,#22C55E,transparent);box-shadow:0 0 14px #22C55E;z-index:11}
+.hold{z-index:11}
+.star-off{z-index:11}
+.sms{left:10px;right:10px;top:10px;border-radius:20px;background:rgba(255,255,255,.97);box-shadow:0 12px 30px rgba(15,23,42,.28);padding:12px 16px;z-index:18;color:#0F172A;font-family:'Kantumruy Pro','Segoe UI';font-size:15px;line-height:1.45}
+.sms .h{display:flex;align-items:center;gap:8px;font-family:'Segoe UI';font-size:12.5px;color:#64748B}
+.sms .h i{width:20px;height:20px;border-radius:6px;background:#22C55E;display:inline-block}
+/* ---- OTP step (rebuilt from login_page.dart _OtpStep) */
+.otp{position:absolute;inset:0;background:#fff;padding:24px 20px;color:#1F3A5F}
+.otp .back{width:44px;height:44px;border-radius:50%;background:#EEF1F5;display:grid;place-items:center;font-size:22px;margin-top:6px}
+.otp .t{font-size:24px;font-weight:700;margin-top:26px}
+.otp .c{font-size:14.5px;color:#52627A;margin-top:4px}
+.otp .lk{font-size:14px;color:#C2410C;font-weight:700;margin-top:10px}
+.otp .bx{display:flex;gap:8px;margin-top:16px}
+.otp .bx i{flex:1;height:60px;border-radius:14px;border:1px solid #E2E8F0;background:#F7F8FA;display:grid;place-items:center;font-style:normal;font-family:'Segoe UI';font-size:24px;font-weight:700}
+.otp .bx i.on{border:2px solid #E8590C}
+.otp .rs{text-align:center;color:#64748B;font-size:14px;margin-top:14px}
+.otp .tg{height:54px;border-radius:16px;background:#EEF1F5;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15.5px;margin-top:18px}
+.otp .info{margin-top:14px;border-radius:16px;background:#EAF2FF;padding:12px 14px;font-size:13.5px;color:#1E3A8A}
+.otp .btn{position:absolute;left:20px;right:20px;bottom:22px;height:60px;border-radius:16px;background:#CBD5E1;color:#fff;display:grid;place-items:center;font-weight:700;font-size:17px}
+/* ---- intro / outro */
+.hero{position:absolute;left:880px;top:200px;width:900px;display:flex;flex-direction:column;gap:24px}
+.logo-big{width:150px;height:150px;border-radius:36px;background:#fff;padding:10px;object-fit:contain;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.tags{display:flex;gap:14px;flex-wrap:wrap}
+.tag{padding:10px 22px;border-radius:999px;font-size:25px;font-weight:600;background:rgba(232,89,12,.15);border:1px solid rgba(251,146,60,.45);color:#FFE4D1}
+.bigbtn{width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#FB923C,#E8590C 60%,#C2410C);display:grid;place-items:center;text-align:center;color:#fff;font-size:44px;font-weight:700;box-shadow:0 0 0 26px rgba(232,89,12,.18),0 0 0 54px rgba(232,89,12,.08),0 25px 60px rgba(0,0,0,.45)}
+/* ---- flow road */
+.road-wrap{position:absolute;inset:0}
+.pin{position:absolute;width:250px;margin-left:-125px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.pin .ic{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;background:#16263D;border:4px solid #33496A;box-shadow:0 14px 30px rgba(0,0,0,.35);position:relative}
+.pin .ic svg{width:52px;height:52px;fill:none;stroke:#A3B4CB;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pin .ic .n{position:absolute;right:-8px;top:-8px;width:38px;height:38px;border-radius:50%;background:#33496A;color:#fff;font-family:'Segoe UI';font-weight:800;font-size:19px;display:grid;place-items:center}
+.pin.on .ic{background:linear-gradient(145deg,#FB923C,#E8590C);border-color:#FDBA74;box-shadow:0 0 0 10px rgba(232,89,12,.18),0 14px 30px rgba(0,0,0,.35)}
+.pin.on .ic svg{stroke:#fff}
+.pin.on .ic .n{background:#fff;color:#E8590C}
+.pin.done .ic .n{background:#22C55E;color:#052e16}
+.pin .l{font-size:30px;font-weight:700;color:#fff;line-height:1.25;text-shadow:0 0 6px #0B1626,0 2px 10px #0B1626,0 0 2px #0B1626}
+.pin .e{font-family:"Segoe UI";font-size:19px;color:var(--mut);text-shadow:0 0 6px #0B1626,0 0 3px #0B1626}
+.promise{position:absolute;display:flex;align-items:center;gap:18px;padding:20px 26px;border-radius:22px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.35);font-size:28px;font-weight:600}
+.promise .tk{width:50px;height:50px;border-radius:50%;background:#22C55E;display:grid;place-items:center;flex:none}
+.promise small{display:block;font-family:'Segoe UI';font-size:19px;color:#BBF7D0;font-weight:500}
+/* ---- story (cartoon) */
+.story svg.world{position:absolute;inset:0}
+.bubble{position:absolute;padding:14px 26px;border-radius:22px;background:#fff;color:#1F3A5F;font-size:30px;font-weight:700;box-shadow:0 14px 34px rgba(0,0,0,.25);display:flex;align-items:center;gap:14px;white-space:nowrap}
+.bubble .tk{width:40px;height:40px;border-radius:50%;background:#22C55E;display:grid;place-items:center}
+.tagline{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;
+  background:radial-gradient(900px 500px at 50% 45%,rgba(11,22,38,.86),rgba(11,22,38,.55) 70%,rgba(11,22,38,.25))}
+.tagline .n{font-family:'Segoe UI',Arial;font-size:78px;font-weight:800;color:#fff;letter-spacing:.5px}
+.tagline .k{font-size:44px;font-weight:700;color:var(--or3)}
+</style>
+</head>
+<body>
+<div id="stage">
+<svg id="bg" width="1920" height="1080"></svg>
+<div id="progress"></div>
+<div id="brand"><img src="screens/logo.png" alt=""><b>Help Road Cambodia</b><span>• របៀបប្រើកម្មវិធីអតិថិជន</span></div>
+<div id="flowbar"></div>
+
+<!-- 1. story: the ride and the flat tire -->
+<section class="slide story" data-id="story1"><svg class="world" width="1920" height="1080" viewBox="0 0 1920 1080"></svg></section>
+
+<!-- 2. story: the HRC app saves the day -->
+<section class="slide story" data-id="story2"><svg class="world" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+  <div class="phone sphone" style="left:300px;top:110px;transform-origin:0 0"><div class="phone-in"><div class="screen" data-ph="story2"></div><div class="notch"></div></div></div>
+  <div class="bubble b-eta" style="left:250px;top:330px">⏱ ជាងមកដល់ • 7 នាទី</div>
+  <div class="bubble b-price" style="left:120px;top:200px"><span class="tk"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>តម្លៃច្បាស់លាស់ $4.50</div>
+  <div class="bubble b-pay" style="left:120px;top:300px"><span class="tk"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>បង់តាម KHQR ងាយស្រួល</div>
+  <div class="tagline"><img class="logo-big" src="screens/logo.png" alt=""><div class="n">Help Road Cambodia</div><div class="k">ជំនួយលើផ្លូវ គ្រប់ពេល គ្រប់ទីកន្លែង</div></div>
+</section>
+
+<!-- 3. intro: HRC the robot -->
+<section class="slide" data-id="intro">
+  <div class="hero">
+    <img class="logo-big pop" src="screens/logo.png" alt="">
+    <div class="chip a">ការណែនាំ • USER GUIDE</div>
+    <h1 class="a" style="font-size:76px">របៀបប្រើកម្មវិធី <span class="ac">HRC</span><br>សម្រាប់អតិថិជន</h1>
+    <div class="en a" style="font-size:32px">Help Road Cambodia — Customer App Guide</div>
+    <div class="tags">
+      <span class="tag pop" data-cue="3">ចុះឈ្មោះ</span><span class="tag pop" data-cue="3" data-d="0.3">ស្នើសុំជំនួយ</span>
+      <span class="tag pop" data-cue="3" data-d="0.6">បង់ប្រាក់</span><span class="tag pop" data-cue="3" data-d="0.9">វាយតម្លៃជាង</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. process flow (road with six stops) -->
+<section class="slide" data-id="flow">
+  <div class="col" style="top:150px;gap:14px"><div class="chip a">ដំណើរការ • PROCESS FLOW</div><h1 class="a">ដំណើរការប្រើកម្មវិធី <span class="ac">6 ជំហាន</span></h1></div>
+  <div class="road-wrap" data-road="flow"></div>
+</section>
+
+<!-- 5. install, intro screens, permissions -->
+<section class="slide" data-id="start" data-phase="1">
+  <div class="col"><div class="chip a">ជំហានទី 1 • STEP 1</div><h1 class="a">ដំឡើង និង<span class="ac">បើកកម្មវិធី</span></h1><div class="en a">Install, open, allow location &amp; alerts</div>
+    <div class="list">
+      <div class="li a" data-cue="0" data-d="0.4"><span class="k">1</span><div>ដំឡើងកម្មវិធី HRC ហើយបើកវា<small>Install the HRC app and open it</small></div></div>
+      <div class="li a" data-cue="1"><span class="k">2</span><div>មើលការណែនាំ ហើយចុច <b>បន្ត</b><small>Read the intro, tap "Continue"</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">3</span><div>អនុញ្ញាត <b>ទីតាំង</b> ឱ្យជាងរកអ្នកឃើញ<small>Allow location so the mechanic finds you</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">4</span><div>អនុញ្ញាត <b>ការជូនដំណឹង</b><small>Allow notifications</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="start"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 6. sign in -->
+<section class="slide" data-id="login" data-phase="1">
+  <div class="col"><div class="chip a">ជំហានទី 1 • STEP 1</div><h1 class="a">ចូលប្រើដោយ<span class="ac">លេខទូរស័ព្ទ</span></h1><div class="en a">Sign in with your phone number</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div>បញ្ចូលលេខទូរស័ព្ទ ចុច <b>ទទួលលេខកូដ OTP</b><small>Enter your number, tap "Get OTP code"</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">2</span><div>ទទួលសារ SMS លេខកូដ <b>6 ខ្ទង់</b><small>You get a 6-digit code by SMS</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>បញ្ចូលលេខកូដ ចុច <b>បញ្ជាក់</b><small>Type the code, tap "Verify"</small></div></div>
+      <div class="li a" data-cue="4"><span class="k">4</span><div>លេខបរទេស? ចូលតាម <b>Telegram</b><small>Foreign number? Sign in with Telegram</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="login"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 7. profile setup -->
+<section class="slide" data-id="setup" data-phase="1">
+  <div class="col"><div class="chip a">ជំហានទី 1 • STEP 1</div><h1 class="a">បំពេញ<span class="ac">ព័ត៌មានខ្លីៗ</span></h1><div class="en a">Your name and your vehicle</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div>វាយ <b>ឈ្មោះ</b> របស់អ្នក<small>Type your name</small></div></div>
+      <div class="li a" data-cue="1" data-d="1.6"><span class="k">2</span><div>ជ្រើស <b>ម៉ូតូ • រ៉ឺម៉ក • ឡាន</b><small>Choose motorbike, tuk-tuk or car</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">3</span><div>គូសធីក យល់ព្រម ហើយចុច <b>ចាប់ផ្តើមប្រើ</b><small>Accept the terms, tap "Start"</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="setup"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 8. home -->
+<section class="slide" data-id="home" data-phase="2">
+  <div class="col"><div class="chip a">ជំហានទី 2 • STEP 2</div><h1 class="a">ស្គាល់<span class="ac">ទំព័រដើម</span></h1><div class="en a">The home screen</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div>ប៊ូតុងធំ <b>ជួយខ្ញុំ</b> ហៅជាងនៅជិតបំផុត<small>"Help me" calls the nearest mechanic</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">2</span><div><b>សេវារហ័ស</b> ប៉ះកង់ • ម៉ាស៊ីន • សាំង • ស្ទូច<small>Quick services: tire, engine, fuel, tow</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>ផ្លាក <b>តម្លៃថ្ងៃ / តម្លៃយប់</b><small>Day or night price badge</small></div></div>
+      <div class="li a" data-cue="4"><span class="k">4</span><div>ប្រវត្តិ • ដំណឹង • គណនី<small>History, Alerts, Account</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="home"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 9. request: vehicle + problem -->
+<section class="slide" data-id="request" data-phase="2">
+  <div class="col"><div class="chip a">ជំហានទី 2 • STEP 2</div><h1 class="a">ស្នើសុំ<span class="ac">ជំនួយ</span></h1><div class="en a">Choose your vehicle and the problem</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div>ជ្រើស <b>យានយន្ត</b><small>Choose the vehicle</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">2</span><div>ជ្រើស <b>បញ្ហា</b> ប៉ះកង់ • ម៉ាស៊ីន • សាំង…<small>Choose the problem</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>មើល <b>តម្លៃចាប់ផ្តើម</b> នៃសេវានីមួយៗ<small>See each service's starting price</small></div></div>
+      <div class="li a" data-cue="4"><span class="k">4</span><div>ចុច <b>បន្ទាប់</b><small>Tap "Next"</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="request"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 10. confirm location -->
+<section class="slide" data-id="location" data-phase="2">
+  <div class="col"><div class="chip a">ជំហានទី 2 • STEP 2</div><h1 class="a">បញ្ជាក់<span class="ac">ទីតាំង</span></h1><div class="en a">Confirm where you are</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div><b>GPS</b> ដាក់ចំណុចពណ៌ទឹកក្រូច នៅកន្លែងអ្នក<small>GPS puts the orange pin where you are</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">2</span><div>សរសេរ <b>ចំណាំសម្រាប់ជាង</b> ឬថតរូប<small>Add a note or a photo for the mechanic</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>ចុច <b>បញ្ជាក់ទីតាំង</b><small>Tap "Confirm location"</small></div></div>
+      <div class="li a" data-cue="4"><span class="k">4</span><div>សេវាមានតែក្នុង <b>តំបន់ HRC</b><small>Works inside HRC service areas</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="location"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 11. price estimate -->
+<section class="slide" data-id="price" data-phase="2">
+  <div class="col"><div class="chip a">ជំហានទី 2 • STEP 2</div><h1 class="a">មើល<span class="ac">តម្លៃមុន</span> ហៅជាង</h1><div class="en a">See the price before you call</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div><b>តម្លៃអតិបរមា</b> ឧ. មិនលើសពី $4.50<small>The most you will pay, e.g. $4.50</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">2</span><div>រួមចម្ងាយ 5 គ.ម • <b>គ្រឿងបន្លាស់ ត្រូវសុំការយល់ព្រម</b><small>5 km included • parts need your approval</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>ជ្រើស <b>សាច់ប្រាក់</b> ឬ <b>KHQR</b><small>Choose cash or KHQR</small></div></div>
+      <div class="li a" data-cue="4"><span class="k">4</span><div>ចុច <b>ហៅជាងឥឡូវ</b><small>Tap "Call a mechanic now"</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="price"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 12. searching -->
+<section class="slide" data-id="search" data-phase="3">
+  <div class="col"><div class="chip a">ជំហានទី 3 • STEP 3</div><h1 class="a">កំពុង<span class="ac">ស្វែងរកជាង</span></h1><div class="en a">Finding the nearest mechanic</div>
+    <div class="list">
+      <div class="li a" data-cue="0" data-d="0.5"><span class="k">1</span><div>ស្វែងរកជាង <b>នៅជិតអ្នកបំផុត</b><small>Looks for the nearest mechanic</small></div></div>
+      <div class="li a" data-cue="1"><span class="k">2</span><div>ជាងម្នាក់ៗមាន <b>30 វិនាទី</b> ដើម្បីទទួល<small>Each mechanic has 30 s to accept</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">3</span><div>បោះបង់ពេលស្វែងរក <b>ឥតគិតថ្លៃ</b><small>Cancel free while searching</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="search"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 13. mechanic on the way -->
+<section class="slide" data-id="enroute" data-phase="3">
+  <div class="col"><div class="chip a">ជំហានទី 3 • STEP 3</div><h1 class="a">ជាង<span class="ac">កំពុងមក</span></h1><div class="en a">Follow the mechanic on the map</div>
+    <div class="list">
+      <div class="li a" data-cue="0" data-d="0.4"><span class="k">1</span><div>ឈ្មោះ • ពិន្ទុ • <b>បានផ្ទៀងផ្ទាត់</b><small>Name, rating, verified badge</small></div></div>
+      <div class="li a" data-cue="1"><span class="k">2</span><div>តាមដានលើផែនទី និង <b>ពេលមកដល់</b><small>Live map and arrival time</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">3</span><div>ចុច <b>ហៅ</b> ឬ <b>Chat</b><small>Call or chat with the mechanic</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">4</span><div><b>ប្រាប់គ្រួសារ</b> ចែករំលែកដំណើរ<small>Share the trip with family</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="enroute"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 14. photo, quote, approve -->
+<section class="slide" data-id="quote" data-phase="4">
+  <div class="col"><div class="chip a">ជំហានទី 4 • STEP 4</div><h1 class="a">យល់ព្រម<span class="ac">តម្លៃ</span> មុនជួសជុល</h1><div class="en a">Approve the price before the repair</div>
+    <div class="list">
+      <div class="li a" data-cue="0" data-d="0.4"><span class="k">1</span><div>ជាង <b>ថតរូបមុន</b> ជួសជុល<small>Photo before the repair</small></div></div>
+      <div class="li a" data-cue="1"><span class="k">2</span><div>ជាងផ្ញើ <b>ការស្នើតម្លៃគ្រឿងបន្លាស់</b><small>The mechanic sends a parts quote</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>ចុច <b>យល់ព្រម</b> ឬ <b>បដិសេធ</b><small>Approve or decline</small></div></div>
+      <div class="li a" data-cue="5"><span class="k">4</span><div>គ្មានការដូរគ្រឿង <b>ដោយគ្មានការយល់ព្រម</b><small>No part changed without your OK</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="quote"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 15. pay -->
+<section class="slide" data-id="pay" data-phase="5">
+  <div class="col"><div class="chip a">ជំហានទី 5 • STEP 5</div><h1 class="a"><span class="ac">បង់ប្រាក់</span> ងាយស្រួល</h1><div class="en a">Pay by KHQR or in cash</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div>ស្កេន <b>KHQR</b> ជាមួយ ABA • ACLEDA • Wing • Bakong<small>Scan with your banking app</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">2</span><div>រក្សាទុក QR ឬ <b>បើក App ធនាគារ</b><small>Save the QR or open your bank app</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>ប្រព័ន្ធបញ្ជាក់ <b>ដោយស្វ័យប្រវត្តិ</b><small>Confirmed automatically</small></div></div>
+      <div class="li a" data-cue="4"><span class="k">4</span><div><b>សាច់ប្រាក់</b>៖ ឱ្យជាង ហើយជាងបញ្ជាក់<small>Cash: pay the mechanic, they confirm</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="pay"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 16. rate + receipt -->
+<section class="slide" data-id="rate" data-phase="6">
+  <div class="col"><div class="chip a">ជំហានទី 6 • STEP 6</div><h1 class="a">វាយតម្លៃ<span class="ac">ជាង</span></h1><div class="en a">Rate the mechanic, get your receipt</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div>ចុច <b>ផ្កាយ 1–5</b> និងជ្រើសអ្វីដែលល្អ<small>Tap 1–5 stars, pick what was good</small></div></div>
+      <div class="li a" data-cue="1" data-d="3"><span class="k">2</span><div>ចុច <b>ដាក់ការវាយតម្លៃ</b><small>Tap "Submit rating"</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">3</span><div><b>វិក្កយបត្រ</b> រូបមុន/ក្រោយ និងតម្លៃលម្អិត<small>Receipt with before/after photos</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">4</span><div>ទាញយក <b>PDF</b> ឬ <b>រាយការណ៍បញ្ហា</b><small>Download PDF or report a problem</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="rate"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 17. cancel rules -->
+<section class="slide" data-id="cancel">
+  <div class="col"><div class="chip tip a">គន្លឹះ • GOOD TO KNOW</div><h1 class="a">ការ<span class="ac">បោះបង់</span>ការស្នើសុំ</h1><div class="en a">Cancelling a request</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">✓</span><div><b>ឥតគិតថ្លៃ</b> ពេលស្វែងរក ឬក្នុង 2 នាទី<small>Free while searching or within 2 min</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">!</span><div>ក្រោយនោះ អាចមាន <b>ថ្លៃតិចតួច</b> បង្ហាញមុន<small>After that, a small fee shown first</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">$</span><div>ប្រាក់នេះ <b>ផ្តល់ជូនជាង</b><small>The fee goes to the mechanic</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="cancel"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 18. SOS -->
+<section class="slide" data-id="sos">
+  <div class="col"><div class="chip red a">សុវត្ថិភាព • SAFETY</div><h1 class="a">ជំនួយ<span class="ac">បន្ទាន់ SOS</span></h1><div class="en a">Emergency help</div>
+    <div class="list">
+      <div class="li a" data-cue="1"><span class="k">1</span><div>ចុចប៊ូតុង <b>SOS</b> ឱ្យជាប់ <b>2 វិនាទី</b><small>Hold the SOS button for 2 seconds</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">2</span><div>HRC និង<b>ទំនាក់ទំនងបន្ទាន់</b> ទទួលទីតាំង<small>HRC and your contacts get your location</small></div></div>
+      <div class="li a" data-cue="3"><span class="k">3</span><div>ហៅ <b>117</b> ប៉ូលីស • <b>119</b> សង្គ្រោះ • <b>118</b> អគ្គិភ័យ<small>Police, ambulance, fire</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="sos"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 19. history + help -->
+<section class="slide" data-id="history">
+  <div class="col"><div class="chip tip a">គន្លឹះ • GOOD TO KNOW</div><h1 class="a"><span class="ac">ប្រវត្តិ</span> និងជំនួយ</h1><div class="en a">History and help</div>
+    <div class="list">
+      <div class="li a" data-cue="0" data-d="0.5"><span class="k">1</span><div>មើលការងារ <b>តម្លៃ និងស្ថានភាព</b><small>All your jobs, prices and status</small></div></div>
+      <div class="li a" data-cue="1"><span class="k">2</span><div>ចុចមើល <b>លម្អិត • វិក្កយបត្រ • រាយការណ៍</b><small>Details, receipt, report a problem</small></div></div>
+      <div class="li a" data-cue="2"><span class="k">3</span><div>គណនី → ជំនួយ • <b>Hotline 24 ម៉ោង</b><small>Account → Help: FAQ, 24/7 hotline</small></div></div>
+    </div></div>
+  <div class="phone a"><div class="phone-in"><div class="screen" data-ph="history"></div><div class="notch"></div></div></div>
+</section>
+
+<!-- 20. recap -->
+<section class="slide" data-id="recap">
+  <div class="col" style="top:150px;gap:14px"><div class="chip a">សរុប • SUMMARY</div><h1 class="a">តែ <span class="ac">6 ជំហាន</span> ប៉ុណ្ណោះ</h1></div>
+  <div class="road-wrap" data-road="recap"></div>
+  <div class="promise a" data-cue="2" style="left:180px;top:850px"><span class="tk"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><div>តម្លៃបង្ហាញជាមុនជានិច្ច<small>The price is always shown first</small></div></div>
+  <div class="promise a" data-cue="2" data-d="0.8" style="left:820px;top:850px"><span class="tk"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><div>គ្មានការដូរគ្រឿង ដោយគ្មានការយល់ព្រម<small>No part changed without your approval</small></div></div>
+</section>
+
+<!-- 21. outro -->
+<section class="slide" data-id="outro">
+  <div class="col" style="top:170px;width:1080px;gap:26px">
+    <img class="logo-big pop" src="screens/logo.png" alt="">
+    <h1 class="a" style="font-size:84px">អរគុណ<span class="ac">ដែលបានមើល!</span></h1>
+    <div class="en a" style="font-size:32px">Thank you for watching</div>
+    <div class="a" data-cue="1" style="display:flex;align-items:center;gap:60px;margin-top:20px">
+      <div class="bigbtn" id="outro-btn">ជួយខ្ញុំ</div>
+      <div style="font-size:36px;font-weight:600;line-height:1.5">មានបញ្ហាលើផ្លូវ?<br><span style="color:var(--or3)">បើកកម្មវិធី ហើយចុច ជួយខ្ញុំ</span><div style="font-family:'Segoe UI';font-size:24px;color:var(--mut)">Trouble on the road? Open the app, tap "Help me".</div></div>
+    </div>
+    <div class="tag a" data-cue="3" style="align-self:flex-start;font-size:30px">ធ្វើដំណើរដោយសុវត្ថិភាព! • Ride safe!</div>
+  </div>
+</section>
+
+<div id="subs" class="left"></div>
+</div>
+
+<script>
+window.__errs = [];
+window.addEventListener('error', e => window.__errs.push(String(e.message)));
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = p => { p = clamp(p); return 1 - Math.pow(1 - p, 3); };
+const inout = p => { p = clamp(p); return p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; };
+const back = p => { p = clamp(p); const c = 1.6; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); };
+const lerp = (a, b, p) => a + (b - a) * p;
+const $ = (sel, root = document) => root.querySelector(sel);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; };
+const NS = 'http://www.w3.org/2000/svg';
+
+// ====================================================================== phone engine
+// Coordinates are in screenshot pixels (618 x 1350); the screen is 412 x 900, so K = 2/3.
+const K = 412 / 618;
+const FINGER = '<svg viewBox="0 0 64 64"><path d="M24 30V11a5 5 0 0 1 10 0v15l11 2.6c4 1 6.4 4.7 5.6 8.7L48 50c-.8 4-4.3 7-8.4 7H30.4c-2.8 0-5.4-1.3-7-3.6L12.6 39c-1.6-2.3-1-5.4 1.4-6.8 2-1.2 4.6-.8 6.2 1L24 37z" fill="#fff" stroke="#1F3A5F" stroke-width="3" stroke-linejoin="round"/></svg>';
+const OTP = `<div class="otp"><div class="back">←</div><div class="t">បញ្ចូលលេខកូដ</div><div class="c">យើងបានផ្ញើលេខកូដ 6 ខ្ទង់ ទៅ +855 12 345 678</div>
+  <div class="lk">កែលេខ • Edit number</div><div class="bx"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="rs">🕒 ផ្ញើម្តងទៀតក្នុង 0:52</div>
+  <div class="tg"><span style="color:#229ED9">➤</span> ទទួលលេខកូដតាម Telegram</div>
+  <div class="info"><b>មិនទទួលបានលេខកូដ?</b><br>ពិនិត្យសារ SMS ឬហៅ HRC Hotline</div><div class="btn">បញ្ជាក់ • Verify</div></div>`;
+const STAR = '<svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M12 2.8l2.9 5.9 6.4.9-4.6 4.5 1.1 6.4L12 17.5l-5.8 3 1.1-6.4-4.6-4.5 6.4-.9z" fill="#E2E8F0"/></svg>';
+
+// Per phone: actions. t = seconds in the scene, 'cN' (+/-d) = when sentence N of the voice starts, 'fX' = fraction of the voice.
+const PH = {
+  start: [
+    { s: 'intro', t: 0 },
+    { hl: [30, 1242, 558, 90], t: 'c1+0.6', u: 'c2-0.4' }, { tap: [309, 1287], t: 'c2-0.7' }, { s: 'perm_loc', t: 'c2-0.3' },
+    { fx: 'radar', at: [309, 226], t: 'c2', u: 'c3' },
+    { hl: [30, 1182, 558, 90], t: 'c2+1.4', u: 'c3-0.4' }, { tap: [309, 1227], t: 'c3-0.7' }, { s: 'perm_notif', t: 'c3-0.3' },
+    { hl: [30, 1182, 558, 90], t: 'c3+1.2', u: 'f1+0.6' }, { tap: [309, 1227], t: 'f1' },
+  ],
+  login: [
+    { s: 'login', t: 0 },
+    { type: 'phone', box: [250, 516, 326, 64], pad: 15, text: '12 345 678', t: 'c1+0.3', d: 1.6, blank: true },
+    { hl: [36, 615, 546, 90], t: 'c1+2.1', u: 'c1+3.6' }, { tap: [309, 660], t: 'c1+3.3' }, { s: 'otp', t: 'c1+3.7' },
+    { fx: 'sms', t: 'c2+0.2', u: 'c3+1.4' },
+    { type: 'otp', text: '482913', t: 'c3+0.4', d: 1.8 },
+    { hl: [30, 1242, 558, 90], t: 'c3+2.3', u: 'c4-0.2' }, { tap: [309, 1287], t: 'c3+3.0' },
+    { s: 'login', t: 'c4-0.2' }, { hl: [36, 774, 546, 90], t: 'c4+0.6', u: 'f1+1' },
+  ],
+  setup: [
+    { s: 'setup', t: 0 },
+    { type: 'name', box: [34, 478, 548, 64], pad: 20, text: 'សុខា', t: 'c1+0.3', d: 0.9, blank: true },
+    { hl: [30, 617, 176, 170], t: 'c1+1.8', u: 'c2-0.2' }, { tap: [118, 690], t: 'c1+2.6' },
+    { hl: [36, 820, 552, 56], t: 'c2+0.2', u: 'c2+1.9' }, { tap: [60, 847], t: 'c2+1.0' },
+    { hl: [30, 1242, 558, 90], t: 'c2+2.0', u: 'f1+1' }, { tap: [309, 1287], t: 'c2+3.0' },
+  ],
+  home: [
+    { s: 'home', t: 0 },
+    { fx: 'radar', at: [309, 391], t: 0, u: 'f1+2', r: 150 },
+    { hl: [192, 274, 234, 234, 117], t: 'c1+0.2', u: 'c2-0.2' },
+    { hl: [24, 706, 572, 156], t: 'c2+0.1', u: 'c3-0.2' }, { tap: [94, 766], t: 'c2+1.6' },
+    { hl: [400, 14, 114, 44, 22], t: 'c3+0.1', u: 'c4-0.2' },
+    { hl: [24, 1236, 572, 96, 40], t: 'c4+0.1', u: 'f1+1' },
+  ],
+  request: [
+    { s: 'request', t: 0 },
+    { hl: [24, 112, 572, 52, 26], t: 'c0+1.2', u: 'c1-0.2' },
+    { hl: [24, 224, 572, 86, 30], t: 'c1+0.1', u: 'c2-0.2' }, { tap: [118, 267], t: 'c1+0.9' },
+    { hl: [24, 372, 572, 428], t: 'c2+0.1', u: 'c3-0.2' }, { tap: [118, 470], t: 'c2+2.2' },
+    { hl: [56, 506, 124, 40, 10], t: 'c3+0.1', u: 'c4-0.2' },
+    { hl: [30, 1242, 558, 90], t: 'c4+0.1', u: 'f1+1' }, { tap: [309, 1287], t: 'c4+0.9' },
+  ],
+  location: [
+    { s: 'location', t: 0 },
+    { hl: [496, 552, 96, 40, 20], t: 'c0+0.8', u: 'c1-0.2' },
+    { fx: 'radar', at: [309, 347], t: 'c1', u: 'f1+2', r: 90 },
+    { hl: [236, 280, 146, 104], t: 'c1+0.2', u: 'c2-0.2' },
+    { type: 'note', box: [34, 750, 548, 66], pad: 22, text: 'នៅមុខវត្តឧណ្ណាលោម', t: 'c2+0.4', d: 1.6 },
+    { hl: [30, 840, 558, 78], t: 'c2+2.4', u: 'c3-0.2' },
+    { hl: [30, 1242, 558, 90], t: 'c3+0.1', u: 'c4-0.2' }, { tap: [309, 1287], t: 'c3+1.0' },
+    { hl: [30, 606, 560, 76], t: 'c4+0.1', u: 'f1+1' },
+  ],
+  price: [
+    { s: 'price', t: 0 },
+    { hl: [26, 456, 566, 146, 26], t: 'c1+0.1', u: 'c2-0.2' },
+    { hl: [24, 616, 572, 146], t: 'c2+0.1', u: 'c3-0.2' },
+    { hl: [26, 778, 566, 80, 22], t: 'c3+0.1', u: 'c4-0.2' }, { tap: [490, 818], t: 'c3+1.0' },
+    { hl: [30, 1242, 558, 90], t: 'c4+0.1', u: 'f1+1' }, { tap: [309, 1287], t: 'c4+1.0' },
+  ],
+  search: [
+    { s: 'search', t: 0 },
+    { fx: 'radar', at: [309, 470], t: 0, u: 'f1+2', r: 230 },
+    { fx: 'bar', box: [30, 840, 558, 10], t: 0, u: 'f1+2' },
+    { hl: [24, 776, 572, 124], t: 'c1+0.1', u: 'c2-0.2' },
+    { hl: [26, 914, 282, 92, 24], t: 'c2+0.1', u: 'f1+1' },
+  ],
+  enroute: [
+    { s: 'enroute', t: 0 },
+    { fx: 'route', pts: [[166, 115], [166, 237], [426, 237], [426, 432]], t: 0, u: 'f1+2' },
+    { hl: [20, 706, 580, 110], t: 'c0+0.4', u: 'c1-0.2' },
+    { hl: [16, 12, 586, 78, 28], t: 'c1+0.1', u: 'c2-0.2' },
+    { hl: [24, 828, 380, 108, 24], t: 'c2+0.1', u: 'c3-0.2' }, { tap: [117, 880], t: 'c2+1.4' },
+    { hl: [22, 940, 176, 52, 20], t: 'c3+0.1', u: 'f1+1' },
+  ],
+  quote: [
+    { s: 'repair', t: 0 },
+    { hl: [26, 390, 184, 166, 26], t: 'c0+0.8', u: 'c1-0.2' },
+    { hl: [26, 568, 566, 104, 26], t: 'c1+0.1', u: 'c1+2.2' }, { tap: [546, 607], t: 'c1+1.6' }, { s: 'quote', t: 'c1+2.0' },
+    { hl: [26, 168, 566, 204, 28], t: 'c2+0.1', u: 'c2+1.7' },
+    { hl: [26, 380, 566, 78, 22], t: 'c2+1.8', u: 'c2+3.3' },
+    { hl: [26, 470, 566, 282, 22], t: 'c2+3.4', u: 'c3-0.2' },
+    { hl: [26, 1084, 566, 100, 22], t: 'c3+0.1', u: 'c4-0.2' }, { tap: [309, 1134], t: 'c3+1.0' },
+    { hl: [24, 776, 572, 112, 20], t: 'c4+0.1', u: 'c4+1.9' },
+    { hl: [26, 1186, 566, 90, 22], t: 'c4+2.0', u: 'c5-0.3' },
+    { s: 'repair', t: 'c5-0.2' }, { hl: [26, 680, 566, 106, 24], t: 'c5+0.4', u: 'f1+1' },
+  ],
+  pay: [
+    { s: 'khqr', t: 0 },
+    { hl: [102, 222, 414, 534, 30], t: 'c1+0.1', u: 'c2-0.2' },
+    { fx: 'scan', box: [180, 462, 258, 258], t: 'c1+0.4', u: 'c2' },
+    { hl: [96, 854, 426, 72, 22], t: 'c2+0.1', u: 'c3-0.2' }, { tap: [403, 890], t: 'c2+1.4' },
+    { hl: [26, 939, 566, 104, 22], t: 'c3+0.1', u: 'c4-0.2' },
+    { s: 'cash', t: 'c4-0.1' },
+    { hl: [140, 214, 338, 140, 22], t: 'c4+0.4', u: 'c4+2.4' },
+    { hl: [26, 582, 566, 108, 22], t: 'c4+2.5', u: 'f1+1' },
+  ],
+  rate: [
+    { s: 'rate', t: 0 },
+    { fx: 'stars', t: 'c1+0.3' }, { tap: [494, 436], t: 'c1+1.3' },
+    { hl: [44, 584, 264, 70, 35], t: 'c1+2.0', u: 'c1+3.6' }, { tap: [242, 619], t: 'c1+2.8' },
+    { hl: [30, 1242, 558, 90], t: 'c1+3.8', u: 'c2-0.3' }, { tap: [309, 1287], t: 'c2-0.9' },
+    { s: 'receipt', t: 'c2-0.2' },
+    { hl: [26, 330, 566, 166, 26], t: 'c2+0.4', u: 'c2+2.4' },
+    { hl: [26, 510, 566, 434, 26], t: 'c2+2.5', u: 'c3-0.2' },
+    { hl: [26, 1045, 566, 82, 22], t: 'c3+0.1', u: 'f1+1' },
+  ],
+  cancel: [
+    { s: 'cancel', t: 0 },
+    { hl: [44, 460, 540, 38, 12], t: 'c1+0.1', u: 'c2-0.2' },
+    { hl: [44, 500, 540, 78, 12], t: 'c2+0.1', u: 'c2+2.6' },
+    { hl: [24, 696, 572, 92, 18], t: 'c2+2.7', u: 'c3-0.2' },
+    { hl: [44, 616, 540, 40, 12], t: 'c3+0.1', u: 'f1+1' },
+  ],
+  sos: [
+    { s: 'sos', t: 0 },
+    { hl: [150, 146, 318, 318, 159], t: 'c1+0.1', u: 'c1+1.3' },
+    { fx: 'hold', at: [309, 305], r: 168, t: 'c1+1.4', d: 2.0 }, { tap: [309, 305], t: 'c1+1.4', hold: 2.0 },
+    { hl: [26, 752, 566, 330, 24], t: 'c2+0.1', u: 'c3-0.2' },
+    { hl: [26, 580, 566, 156, 22], t: 'c3+0.1', u: 'f1+1' },
+  ],
+  history: [
+    { s: 'history', t: 0 },
+    { hl: [190, 1236, 200, 96, 40], t: 'c0+0.3', u: 'c0+2.4' },
+    { hl: [26, 242, 566, 242, 22], t: 'c0+2.5', u: 'c1-0.2' },
+    { tap: [309, 300], t: 'c1+0.9' }, { hl: [26, 242, 566, 116, 22], t: 'c1+0.4', u: 'c2-0.2' },
+    { s: 'help', t: 'c2-0.1' },
+    { hl: [26, 212, 566, 164, 24], t: 'c2+0.6', u: 'c2+3.4' },
+    { hl: [26, 444, 566, 306, 22], t: 'c2+3.5', u: 'f1+1' },
+  ],
+  story2: [
+    { s: 'home', t: 0 },
+    { fx: 'radar', at: [309, 391], t: 0, u: 'c2+2', r: 150 },
+    { tap: [309, 391], t: 'c1+1.7' }, { s: 'search', t: 'c1+2.1' },
+    { fx: 'radar', at: [309, 470], t: 'c1+2.1', u: 'c2+2', r: 230 },
+  ],
+};
+
+function tval(tok, ctx) {
+  if (typeof tok === 'number') return tok;
+  let m = /^c(\d+)([+-][\d.]+)?$/.exec(tok);
+  if (m) return ctx.cue(+m[1]) + (+m[2] || 0);
+  m = /^f([\d.]+)([+-][\d.]+)?$/.exec(tok);
+  if (m) return ctx.at(+m[1]) + (+m[2] || 0);
+  throw new Error('bad time ' + tok);
+}
+const px = v => v * K;
+
+function buildPhone(screen, acts) {
+  const st = { scr: {}, hl: [], taps: [], typ: [], fx: [], shows: [] };
+  // Typing and screen effects live inside their screen (they slide away with it); highlights, taps, the finger and
+  // the SMS banner sit on top of the whole phone.
+  let owner = null;
+  const add = (cls, box, html, own) => { const e = el('div', 'ov ' + cls, html || ''); if (box) Object.assign(e.style, { left: px(box[0]) + 'px', top: px(box[1]) + 'px', width: px(box[2]) + 'px', height: px(box[3]) + 'px' }); ((own && owner) || screen).appendChild(e); return e; };
+  acts.forEach(a => {
+    if (a.s) {
+      if (!st.scr[a.s]) { const d = el('div', 'scr', a.s === 'otp' ? OTP : `<img src="screens/${a.s}.jpg" alt="">`); d.style.visibility = 'hidden'; screen.appendChild(d); st.scr[a.s] = d; }
+      st.shows.push(a);
+    }
+  });
+  acts.forEach(a => {
+    if (a.s) owner = st.scr[a.s];
+    if (a.hl) { const e = add('hl', a.hl); e.style.borderRadius = (a.hl[4] !== undefined ? a.hl[4] : 16) + 'px'; st.hl.push({ a, e }); }
+    if (a.type && a.type !== 'otp') { const e = add('typ', a.box, '', true); e.style.paddingLeft = a.pad + 'px'; e.style.borderRadius = '12px'; st.typ.push({ a, e }); }
+    if (a.type === 'otp') st.typ.push({ a, e: null });
+    if (a.fx === 'radar') { const rings = [0, 1, 2].map(() => add('ring', null, '', true)); st.fx.push({ a, rings }); }
+    if (a.fx === 'route') { const e = add('dot', null, '', true); st.fx.push({ a, e }); }
+    if (a.fx === 'scan') { const e = add('scan', null, '', true); st.fx.push({ a, e }); }
+    if (a.fx === 'bar') { const e = add('', [a.box[0], a.box[1], a.box[2], a.box[3]], '', true); e.style.cssText += ';border-radius:6px;background:#E8590C;z-index:11;transform-origin:0 50%'; st.fx.push({ a, e }); }
+    if (a.fx === 'sms') { const e = add('sms', null, '<div class="h"><i></i>Messages • ឥឡូវ</div><b>HRC</b><br>លេខកូដ HRC របស់អ្នកគឺ <b>482913</b>។ កុំចែករំលែកលេខនេះ។'); st.fx.push({ a, e }); }
+    if (a.fx === 'hold') { const r = a.r * K; const e = add('hold', [a.at[0] - a.r - 10, a.at[1] - a.r - 10, 2 * a.r + 20, 2 * a.r + 20],
+        `<svg width="100%" height="100%" viewBox="0 0 ${2 * r + 14} ${2 * r + 14}"><circle cx="${r + 7}" cy="${r + 7}" r="${r}" fill="none" stroke="rgba(220,38,38,.18)" stroke-width="10"/><circle class="pr" cx="${r + 7}" cy="${r + 7}" r="${r}" fill="none" stroke="#DC2626" stroke-width="10" stroke-linecap="round" transform="rotate(-90 ${r + 7} ${r + 7})" stroke-dasharray="${2 * Math.PI * r}" stroke-dashoffset="${2 * Math.PI * r}"/></svg>`, true);
+      st.fx.push({ a, e, len: 2 * Math.PI * r }); }
+    if (a.fx === 'stars') { const es = [122, 215, 308, 401, 494].map(x => add('star-off', [x - 31, 405, 62, 62], STAR, true)); st.fx.push({ a, es }); }
+    if (a.tap) { const r = add('ripple'); r.style.left = px(a.tap[0]) + 'px'; r.style.top = px(a.tap[1]) + 'px'; st.taps.push({ a, r }); }
+  });
+  st.finger = add('finger', null, FINGER);
+  return st;
+}
+
+function runPhone(screen, ctx) {
+  const id = screen.dataset.ph;
+  if (!screen._st) screen._st = buildPhone(screen, PH[id]);
+  const st = screen._st, lt = ctx.lt, T = tok => tval(tok, ctx);
+  // screens: each new one slides in from the right
+  const shows = st.shows.map(a => ({ name: a.s, t: T(a.t) }));
+  let cur = 0;
+  shows.forEach((s, i) => { if (i === 0 || lt >= s.t) cur = i; });
+  Object.values(st.scr).forEach(d => { d.style.visibility = 'hidden'; });
+  const now = shows[cur], p = cur === 0 ? 1 : inout((lt - now.t) / 0.45);
+  const curEl = st.scr[now.name];
+  curEl.style.visibility = 'visible'; curEl.style.zIndex = 2; curEl.style.transform = `translateX(${(1 - p) * 100}%)`; curEl.style.filter = '';
+  if (cur > 0 && p < 1 && shows[cur - 1].name !== now.name) {
+    const pe = st.scr[shows[cur - 1].name];
+    pe.style.visibility = 'visible'; pe.style.zIndex = 1; pe.style.transform = `translateX(${-p * 30}%)`; pe.style.filter = `brightness(${1 - 0.25 * p})`;
+  }
+  // highlights: orange outline that breathes, the rest of the screen a little darker
+  st.hl.forEach(({ a, e }) => {
+    const t0 = T(a.t), t1 = T(a.u);
+    const op = Math.min(clamp((lt - t0) / 0.3), clamp((t1 - lt) / 0.3));
+    e.style.opacity = op; e.style.visibility = op > 0 ? 'visible' : 'hidden';
+    if (op > 0) {
+      const g = 0.5 + 0.5 * Math.sin((lt - t0) * 5);
+      e.style.boxShadow = `0 0 0 ${3 + 4 * g}px rgba(232,89,12,${0.25 + 0.2 * g}), 0 0 0 2000px rgba(15,23,42,${0.32 * op})`;
+      e.style.transform = `scale(${1 + 0.04 * (1 - ease((lt - t0) / 0.35))})`;
+    }
+  });
+  // typing
+  st.typ.forEach(({ a, e }) => {
+    const t0 = T(a.t), n = a.text.length, k = Math.round(clamp((lt - t0) / a.d) * n);
+    const shown = [...a.text].slice(0, Math.round(clamp((lt - t0) / a.d) * [...a.text].length)).join('');
+    if (a.type === 'otp') {
+      const scr = st.scr.otp; if (!scr) return;
+      const boxes = scr.querySelectorAll('.bx i'), digits = lt < t0 ? 0 : Math.min(6, Math.floor((lt - t0) / a.d * 6 + 0.001));
+      boxes.forEach((b, i) => { b.textContent = i < digits ? a.text[i] : ''; b.classList.toggle('on', i === digits); });
+      scr.querySelector('.btn').style.background = digits >= 6 ? '#E8590C' : '#CBD5E1';
+      return;
+    }
+    const vis = a.blank || lt >= t0;
+    e.style.visibility = vis ? 'inherit' : 'hidden';
+    const typing = lt >= t0 - 0.2 && lt < t0 + a.d + 1.2;
+    const caret = typing && (Math.floor(lt * 2.2) % 2 === 0 || lt < t0 + a.d) ? '<span class="car"></span>' : '';
+    e.innerHTML = (lt >= t0 ? shown : '') + caret;
+  });
+  // effects
+  st.fx.forEach(f => {
+    const a = f.a, t0 = T(a.t), t1 = a.u !== undefined ? T(a.u) : t0 + (a.d || 3);
+    const on = lt >= t0 && lt <= t1, fade = Math.min(clamp((lt - t0) / 0.4), clamp((t1 - lt) / 0.4));
+    if (a.fx === 'radar') f.rings.forEach((r, i) => {
+      const q = ((lt - t0) * 0.55 + i / 3) % 1, R = (a.r || 120) * K * (0.25 + 0.75 * q);
+      Object.assign(r.style, { left: px(a.at[0]) - R + 'px', top: px(a.at[1]) - R + 'px', width: 2 * R + 'px', height: 2 * R + 'px', opacity: on ? (1 - q) * fade : 0 });
+    });
+    if (a.fx === 'route') {
+      const P = a.pts.map(([x, y]) => [px(x), px(y)]), segs = [];
+      let L = 0; for (let i = 1; i < P.length; i++) { const d = Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); segs.push(d); L += d; }
+      let q = (((lt - t0) / 3.2) % 1) * L, i = 0; while (i < segs.length - 1 && q > segs[i]) { q -= segs[i]; i++; }
+      const r = clamp(q / segs[i]);
+      Object.assign(f.e.style, { left: lerp(P[i][0], P[i + 1][0], r) + 'px', top: lerp(P[i][1], P[i + 1][1], r) + 'px', opacity: on ? fade : 0 });
+    }
+    if (a.fx === 'scan') { const q = 0.5 - 0.5 * Math.cos((lt - t0) * 2.6); Object.assign(f.e.style, { left: px(a.box[0]) + 'px', width: px(a.box[2]) + 'px', top: px(a.box[1] + a.box[3] * q) + 'px', opacity: on ? fade : 0 }); }
+    if (a.fx === 'bar') { const q = clamp(0.04 + (lt - t0) / 30); f.e.style.transform = `scaleX(${q})`; }
+    if (a.fx === 'sms') { const y = -140 * (1 - ease((lt - t0) / 0.5)) - 140 * ease((lt - t1) / 0.5); f.e.style.transform = `translateY(${y}px)`; f.e.style.opacity = lt >= t0 - 0.1 && lt <= t1 + 0.6 ? 1 : 0; }
+    if (a.fx === 'hold') { const q = clamp((lt - t0) / a.d); f.e.querySelector('.pr').setAttribute('stroke-dashoffset', f.len * (1 - q)); f.e.style.opacity = lt >= t0 ? clamp(1 - (lt - t0 - a.d - 0.8) / 0.5) : 0; f.e.style.transform = `scale(${q >= 1 ? 1 + 0.06 * Math.sin(clamp((lt - t0 - a.d) / 0.4) * Math.PI) : 1})`; }
+    if (a.fx === 'stars') f.es.forEach((e, i) => { const q = clamp((lt - t0 - i * 0.2) / 0.25); e.style.opacity = 1 - q; e.style.transform = `scale(${1 + 0.3 * Math.sin(q * Math.PI)})`; });
+  });
+  // the finger: glides from tap to tap, presses, ripple
+  const taps = st.taps.map(({ a, r }) => ({ x: px(a.tap[0]), y: px(a.tap[1]), t: T(a.t), hold: a.hold || 0, r }));
+  const fg = st.finger;
+  if (!taps.length) { fg.style.opacity = 0; return; }
+  const wins = [];
+  taps.forEach(tp => { const w = [tp.t - 1.0, tp.t + 0.9 + tp.hold]; const last = wins[wins.length - 1]; if (last && w[0] - last[1] < 1.6) last[1] = w[1]; else wins.push(w); });
+  let op = 0; wins.forEach(([a, b]) => { op = Math.max(op, Math.min(clamp((lt - a) / 0.3), clamp((b - lt) / 0.3))); });
+  let j = taps.findIndex(tp => lt <= tp.t + tp.hold);
+  let x, y, press = 0;
+  if (j < 0) { const l = taps[taps.length - 1]; const q = ease((lt - l.t - l.hold) / 0.8); x = l.x + 40 * q; y = l.y + 70 * q; }
+  else {
+    const tp = taps[j], fromX = j > 0 && tp.t - taps[j - 1].t < 3 ? taps[j - 1].x : tp.x + 70, fromY = j > 0 && tp.t - taps[j - 1].t < 3 ? taps[j - 1].y : tp.y + 130;
+    const q = inout((lt - (tp.t - 0.75)) / 0.62); x = lerp(fromX, tp.x, q); y = lerp(fromY, tp.y, q);
+    press = tp.hold ? clamp((lt - tp.t + 0.1) / 0.15) : 0;
+  }
+  taps.forEach(tp => { const d = (lt - tp.t) / 0.14; if (Math.abs(d) < 1 && !tp.hold) press = Math.max(press, 1 - Math.abs(d)); });
+  Object.assign(fg.style, { left: x + 'px', top: y + 'px', opacity: op, transform: `scale(${1 - 0.16 * press})` });
+  taps.forEach(tp => { const q = (lt - tp.t) / 0.7; const on = q >= 0 && q <= 1 + tp.hold / 0.7; Object.assign(tp.r.style, { opacity: on ? 0.9 * (1 - clamp(q - tp.hold / 0.7)) : 0, transform: `scale(${0.2 + 1.4 * ease(Math.min(q, 1))})` }); });
+}
+
+// ====================================================================== process-flow road (flow + recap)
+const ICON = {
+  phone: '<rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/>',
+  help: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
+  moto: '<circle cx="5.5" cy="16.5" r="3.2"/><circle cx="18.5" cy="16.5" r="3.2"/><path d="M8.7 16.5h5.2l2.6-5.5h-3.4L11 8.5H8M15.3 11l-3 5.5M16 6.5h2.5l1 3.8"/>',
+  check: '<rect x="5" y="4" width="14" height="17" rx="2.2"/><path d="M9 3.5h6v2.5H9zM8.8 13.2l2.3 2.3 4.2-4.6"/>',
+  qr: '<rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1"/><path d="M14 14h2.6v2.6H14zM20.5 14v.01M14 20.5h.01M17.4 20.5h3.1v-3.1"/>',
+  star: '<path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>',
+};
+const STOPS = [['phone', 'ចុះឈ្មោះ', 'Sign up'], ['help', 'ស្នើសុំជំនួយ', 'Request help'], ['moto', 'ជាងមករកអ្នក', 'Mechanic comes'],
+               ['check', 'យល់ព្រម & ជួសជុល', 'Approve & repair'], ['qr', 'បង់ប្រាក់', 'Pay'], ['star', 'វាយតម្លៃ', 'Rate']];
+const ROAD = 'M90,700 C330,700 360,470 620,470 S900,700 1130,700 S1420,470 1640,470 S1830,560 1860,600';
+const STOP_AT = [0.05, 0.23, 0.41, 0.59, 0.77, 0.95];
+function buildRoad(wrap) {
+  wrap.innerHTML = `<svg width="1920" height="1080" style="position:absolute;inset:0">
+    <path d="${ROAD}" fill="none" stroke="#24364F" stroke-width="64" stroke-linecap="round"/>
+    <path class="done" d="${ROAD}" fill="none" stroke="rgba(232,89,12,.55)" stroke-width="64" stroke-linecap="round"/>
+    <path d="${ROAD}" fill="none" stroke="#F8FAFC" stroke-opacity=".7" stroke-width="4" stroke-dasharray="26 22" class="dash"/>
+    <g class="moto"><circle r="38" fill="#fff"/><g transform="translate(-24,-24) scale(2)" fill="none" stroke="#E8590C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON.moto}</g></g></svg>`;
+  const path = wrap.querySelector('path'), L = path.getTotalLength();
+  const pins = STOPS.map(([ic, km, en], i) => {
+    const p = path.getPointAtLength(L * STOP_AT[i]);
+    const d = el('div', 'pin', `<div class="ic"><svg viewBox="0 0 24 24">${ICON[ic]}</svg><span class="n">${i + 1}</span></div><div class="l">${km}</div><div class="e">${en}</div>`);
+    d.style.left = p.x + 'px'; d.style.top = (p.y - 52) + 'px';
+    wrap.appendChild(d); return d;
+  });
+  wrap._r = { path, L, pins, done: wrap.querySelector('.done'), moto: wrap.querySelector('.moto'), dash: wrap.querySelector('.dash') };
+}
+function runRoad(wrap, ctx, times, ticks) {
+  if (!wrap._r) buildRoad(wrap);
+  const R = wrap._r, lt = ctx.lt;
+  let f = 0;   // where the motorbike is (0..1 along the road): it rides to stop k at times[k]
+  for (let k = 0; k < STOP_AT.length; k++) {
+    const t = times[k], prev = k ? STOP_AT[k - 1] : 0, prevT = k ? times[k - 1] : times[0] - 1.2, seg = Math.min(1.1, (t - prevT) * 0.9);
+    if (lt >= prevT) f = lerp(prev, STOP_AT[k], inout((lt - (t - seg)) / seg));
+  }
+  const p = R.path.getPointAtLength(R.L * f), p2 = R.path.getPointAtLength(Math.min(R.L, R.L * f + 2));
+  const ang = Math.atan2(p2.y - p.y, p2.x - p.x) * 180 / Math.PI;
+  R.moto.setAttribute('transform', `translate(${p.x},${p.y - 4 + Math.sin(lt * 14) * 1.5}) rotate(${clamp(ang, -25, 25)})`);
+  R.done.setAttribute('stroke-dasharray', `${R.L * f} ${R.L}`);
+  R.dash.setAttribute('stroke-dashoffset', -lt * 30);
+  R.pins.forEach((d, k) => {
+    const on = lt >= times[k] - 0.15, q = back((lt - times[k] + 0.6) / 0.55);
+    d.style.opacity = clamp((lt - times[k] + 0.9) / 0.4);
+    d.style.transform = `scale(${0.6 + 0.4 * q})`;
+    d.classList.toggle('on', on);
+    d.classList.toggle('done', !!ticks && lt >= ticks[k]);
+    if (ticks && lt >= ticks[k]) d.querySelector('.n').textContent = '✓';
+  });
+}
+
+// ====================================================================== cartoon story
+const SKIN = '#E8B48A', BX = 1000, BY = 930, SC = 1.25, V = 520;
+function rnd(seed) { let s = seed; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
+function bikeSVG(color, box) {
+  const wheel = c => `<g class="${c}"><circle r="46" fill="#1F2937"/><circle r="31" fill="#9CA3AF"/><circle r="27" fill="#D1D5DB"/><g class="sp" stroke="#6B7280" stroke-width="4">
+      <line x1="-27" y1="0" x2="27" y2="0"/><line x1="-13.5" y1="-23.4" x2="13.5" y2="23.4"/><line x1="-13.5" y1="23.4" x2="13.5" y2="-23.4"/></g><circle r="8" fill="#4B5563"/></g>`;
+  return `<g class="wR" transform="translate(-110,-46)">${wheel('w')}</g><g class="wF" transform="translate(120,-46)">${wheel('w')}</g>
+    <rect x="-150" y="-66" width="98" height="15" rx="7" fill="#CBD5E1"/>
+    <rect x="-58" y="-96" width="84" height="46" rx="12" fill="#475569"/>
+    <path d="M-178,-98 Q-182,-146 -122,-148 L-22,-146 Q6,-145 16,-124 L32,-94 L-62,-90 Q-122,-82 -178,-98Z" fill="${color}"/>
+    <path d="M-170,-84 A64,64 0 0 1 -50,-90" stroke="${color}" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <rect x="-138" y="-170" width="120" height="26" rx="13" fill="#111827"/>
+    <path d="M8,-122 Q38,-206 96,-184 L102,-154 Q62,-154 47,-96 L26,-92Z" fill="${color}"/>
+    <line x1="120" y1="-46" x2="92" y2="-176" stroke="#374151" stroke-width="10" stroke-linecap="round"/>
+    <path d="M76,-74 A50,50 0 0 1 166,-66" stroke="${color}" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <line x1="70" y1="-198" x2="110" y2="-194" stroke="#111827" stroke-width="9" stroke-linecap="round"/>
+    <ellipse cx="114" cy="-172" rx="11" ry="13" fill="#FDE68A" stroke="#fff" stroke-width="3"/>
+    <rect x="-190" y="-118" width="13" height="15" rx="4" fill="#EF4444"/>
+    ${box ? `<rect x="-206" y="-218" width="96" height="64" rx="10" fill="#1F3A5F" stroke="#fff" stroke-width="3"/><text x="-158" y="-178" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="22" fill="#FB923C">HRC</text>` : ''}`;
+}
+function riderSVG(shirt, pants, helmet, cap) {
+  return `<line x1="-72" y1="-168" x2="8" y2="-156" stroke="${pants}" stroke-width="30" stroke-linecap="round"/>
+    <line x1="8" y1="-156" x2="-2" y2="-90" stroke="${pants}" stroke-width="26" stroke-linecap="round"/>
+    <ellipse cx="8" cy="-84" rx="22" ry="10" fill="#111827"/>
+    <line x1="-72" y1="-176" x2="-42" y2="-268" stroke="${shirt}" stroke-width="54" stroke-linecap="round"/>
+    <polyline points="-44,-256 26,-222 76,-198" fill="none" stroke="${shirt}" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="80" cy="-196" r="11" fill="${SKIN}"/>
+    <circle cx="-26" cy="-314" r="38" fill="${helmet}"/>
+    <path d="M-2,-330 Q20,-318 12,-292 L-10,-292 Z" fill="#0F172A" opacity=".85"/>
+    ${cap ? `<text x="-30" y="-322" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="16" fill="#fff">HRC</text>` : '<path d="M-62,-322 Q-26,-356 10,-326" stroke="#fff" stroke-width="5" fill="none" opacity=".7"/>'}`;
+}
+function personSVG(shirt, pants, helmet, cap) {
+  return `<rect x="-24" y="-150" width="20" height="146" rx="9" fill="${pants}"/><rect x="4" y="-150" width="20" height="146" rx="9" fill="${pants}"/>
+    <ellipse cx="-16" cy="-4" rx="20" ry="9" fill="#111827"/><ellipse cx="16" cy="-4" rx="20" ry="9" fill="#111827"/>
+    <rect x="-42" y="-276" width="84" height="138" rx="32" fill="${shirt}"/>
+    ${cap ? '<rect x="-42" y="-200" width="84" height="10" fill="#FEF3C7" opacity=".85"/>' : ''}
+    <g class="armL"><line x1="-36" y1="-258" x2="-56" y2="-168" stroke="${shirt}" stroke-width="22" stroke-linecap="round"/><circle cx="-57" cy="-162" r="11" fill="${SKIN}"/></g>
+    <g class="armR"><line x1="36" y1="-258" x2="56" y2="-168" stroke="${shirt}" stroke-width="22" stroke-linecap="round"/><circle cx="57" cy="-162" r="11" fill="${SKIN}"/>
+      <rect class="ph" x="46" y="-196" width="24" height="40" rx="5" fill="#0F172A" stroke="#fff" stroke-width="2.5" opacity="0"/></g>
+    <circle cx="0" cy="-314" r="36" fill="${SKIN}"/>
+    ${cap ? `<path d="M-38,-318 Q-36,-360 0,-362 Q36,-360 38,-318 Z" fill="${helmet}"/><path d="M-6,-322 L56,-318 Q50,-308 -6,-312Z" fill="#E8590C"/>`
+          : `<path d="M-40,-312 Q-40,-362 0,-364 Q40,-362 40,-312 Q20,-330 0,-330 Q-20,-330 -40,-312Z" fill="${helmet}"/>`}
+    <g class="brow" stroke="#3F2A1D" stroke-width="4" stroke-linecap="round"><line class="bl" x1="-20" y1="-326" x2="-6" y2="-322"/><line class="br" x1="20" y1="-326" x2="6" y2="-322"/></g>
+    <circle cx="-13" cy="-310" r="4.5" fill="#1F2937"/><circle cx="13" cy="-310" r="4.5" fill="#1F2937"/>
+    <path class="mouth" d="M-11,-290 Q0,-282 11,-290" stroke="#7C2D12" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="-22" cy="-298" r="6" fill="#F87171" opacity=".35"/><circle cx="22" cy="-298" r="6" fill="#F87171" opacity=".35"/>`;
+}
+function kneelSVG() {
+  return `<line x1="-60" y1="-20" x2="-120" y2="-8" stroke="#1F3A5F" stroke-width="26" stroke-linecap="round"/>
+    <line x1="-60" y1="-96" x2="-4" y2="-70" stroke="#1F3A5F" stroke-width="28" stroke-linecap="round"/><line x1="-4" y1="-70" x2="-4" y2="-8" stroke="#1F3A5F" stroke-width="24" stroke-linecap="round"/>
+    <ellipse cx="4" cy="-4" rx="20" ry="9" fill="#111827"/><ellipse cx="-132" cy="-6" rx="20" ry="9" fill="#111827"/>
+    <line x1="-62" y1="-100" x2="-40" y2="-200" stroke="#E8590C" stroke-width="56" stroke-linecap="round"/>
+    <rect x="-68" y="-150" width="56" height="9" fill="#FEF3C7" opacity=".85" transform="rotate(12 -40 -146)"/>
+    <circle cx="-30" cy="-248" r="34" fill="${SKIN}"/>
+    <path d="M-66,-252 Q-64,-292 -30,-294 Q4,-292 6,-252 Z" fill="#1F3A5F"/><path d="M-30,-258 L28,-252 Q22,-242 -30,-246Z" fill="#E8590C"/>
+    <circle cx="-16" cy="-244" r="4" fill="#1F2937"/><path d="M-22,-226 Q-12,-220 -2,-226" stroke="#7C2D12" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <g class="warm"><polyline points="-30,-186 20,-140 66,-100" fill="none" stroke="#E8590C" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="70" cy="-96" r="11" fill="${SKIN}"/>
+      <g transform="translate(70,-96) rotate(40)"><rect x="-5" y="-6" width="10" height="56" rx="5" fill="#CBD5E1" stroke="#64748B" stroke-width="2"/><path d="M-14,50 a14,14 0 1 0 28,0 l-6,-3 -4,8 h-8 l-4,-8z" fill="#CBD5E1" stroke="#64748B" stroke-width="2"/></g></g>`;
+}
+function buildStory(svg) {
+  const r = rnd(42);
+  let far = '', mid = '', near = '';
+  // far layer: city + a pagoda, period 2600
+  for (let x = 0; x < 2600; x += 120 + r() * 80) {
+    const h = 140 + r() * 220, w = 90 + r() * 90, c = r() < .5 ? '#A9C3DB' : '#BBD1E5';
+    let win = ''; for (let yy = 770 - h + 24; yy < 740; yy += 34) for (let xx = 14; xx < w - 20; xx += 28) win += `<rect x="${xx}" y="${yy}" width="12" height="16" fill="#E0ECF7" opacity=".7"/>`;
+    far += `<g data-x="${x}"><rect x="0" y="${770 - h}" width="${w}" height="${h}" fill="${c}"/>${win}</g>`;
+  }
+  far += `<g data-x="1300"><g fill="#D9B46A" transform="translate(140,770)"><rect x="-100" y="-70" width="200" height="70"/><path d="M-135,-70 L0,-135 L135,-70Z"/><path d="M-90,-125 L0,-185 L90,-125Z"/><path d="M-50,-175 L0,-225 L50,-175Z"/><rect x="-4" y="-292" width="8" height="74"/></g></g>`;
+  // middle layer: trees, lamps, closed shops, period 2600
+  const items = ['palm', 'tree', 'lamp', 'shop', 'palm', 'lamp', 'tree', 'palm', 'shop', 'lamp', 'tree', 'palm'];
+  items.forEach((it, i) => {
+    const x = i * 216 + r() * 60;
+    let g = '';
+    if (it === 'palm') g = `<path d="M0,0 Q10,-120 26,-230" stroke="#8B5E34" stroke-width="16" fill="none" stroke-linecap="round"/>${[-60, -20, 20, 60, 100, 140].map(a => `<ellipse cx="26" cy="-230" rx="70" ry="16" fill="#2F9E5B" transform="rotate(${a} 26 -230) translate(52 0)"/>`).join('')}`;
+    if (it === 'tree') g = `<rect x="-8" y="-110" width="16" height="110" fill="#8B5E34"/><circle cx="0" cy="-150" r="62" fill="#38A169"/><circle cx="-42" cy="-118" r="44" fill="#2F9E5B"/><circle cx="44" cy="-120" r="46" fill="#48BB78"/>`;
+    if (it === 'lamp') g = `<rect x="-5" y="-280" width="10" height="280" fill="#475569"/><path d="M0,-276 Q30,-292 52,-272" stroke="#475569" stroke-width="8" fill="none"/><ellipse cx="54" cy="-266" rx="16" ry="8" fill="#FDE68A"/>`;
+    if (it === 'shop') g = `<rect x="-110" y="-180" width="220" height="180" fill="#F1E3CB"/><rect x="-96" y="-120" width="192" height="120" fill="#94A3B8"/>${[0, 1, 2, 3, 4, 5, 6].map(k => `<line x1="-96" x2="96" y1="${-108 + k * 16}" y2="${-108 + k * 16}" stroke="#64748B" stroke-width="3"/>`).join('')}
+        <path d="M-120,-180 L120,-180 L108,-140 L-108,-140Z" fill="#EF4444"/>${[0, 1, 2, 3, 4].map(k => `<path d="M${-108 + k * 48},-140 L${-84 + k * 48},-140 L${-90 + k * 48},-180 L${-114 + k * 48},-180Z" fill="#fff" opacity=".85"/>`).join('')}
+        <rect x="-50" y="-215" width="100" height="32" rx="6" fill="#1F3A5F"/><text x="0" y="-192" text-anchor="middle" font-size="20" font-weight="700" fill="#fff" font-family="Kantumruy Pro">បិទ</text>`;
+    mid += `<g data-x="${x}"><g transform="translate(0,776)">${g}</g></g>`;
+  });
+  for (let x = 0; x < 2600; x += 130) near += `<g data-x="${x}"><rect x="0" y="996" width="70" height="9" rx="4" fill="#F8FAFC" opacity=".85"/><line x1="0" y1="770" x2="0" y2="800" stroke="#94A3B8" stroke-width="3"/></g>`;
+  const clouds = [0, 1, 2, 3, 4].map(i => `<g data-x="${i * 560 + r() * 200}" data-y="${110 + r() * 160}"><g fill="#fff" opacity=".92"><ellipse cx="0" cy="0" rx="90" ry="34"/><ellipse cx="-40" cy="-20" rx="50" ry="36"/><ellipse cx="34" cy="-28" rx="58" ry="42"/></g></g>`).join('');
+  svg.innerHTML = `<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7CC6F0"/><stop offset=".65" stop-color="#CBE8F6"/><stop offset="1" stop-color="#FDE7C7"/></linearGradient>
+      <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset=".55" stop-color="#FFD166"/><stop offset="1" stop-color="#FFD166" stop-opacity="0"/></radialGradient></defs>
+    <rect width="1920" height="1080" fill="url(#sky)"/><circle cx="1560" cy="210" r="140" fill="url(#sun)"/>
+    <g class="clouds">${clouds}</g><g class="far">${far}</g>
+    <rect y="766" width="1920" height="30" fill="#CBD5E1"/><rect y="792" width="1920" height="8" fill="#94A3B8"/>
+    <g class="mid">${mid}</g>
+    <rect y="800" width="1920" height="280" fill="#3B4454"/><rect y="806" width="1920" height="4" fill="#FBBF24" opacity=".7"/>
+    <g class="near">${near}</g>
+    <g class="mech" transform="translate(-2000,${BY}) scale(${SC})">
+      <g class="mbike">${bikeSVG('#E8590C', true)}<g class="mride">${riderSVG('#E8590C', '#1F3A5F', '#E8590C', true)}</g></g>
+      <g class="mkneel" opacity="0">${kneelSVG()}</g>
+      <g class="mstand" opacity="0">${personSVG('#E8590C', '#1F3A5F', '#1F3A5F', true)}</g></g>
+    <g class="bike">${bikeSVG('#2563EB', false)}<g class="ride">${riderSVG('#60A5FA', '#1E293B', '#F8FAFC', false)}</g></g>
+    <g class="stand" opacity="0">${personSVG('#60A5FA', '#1E293B', '#F8FAFC', false)}</g>
+    <g class="sparks"></g>
+    <g class="bang" opacity="0"><polygon points="${Array.from({ length: 24 }, (_, i) => { const a = i * Math.PI / 12, R = i % 2 ? 70 : 140; return `${(Math.cos(a) * R).toFixed(1)},${(Math.sin(a) * R).toFixed(1)}`; }).join(' ')}" fill="#FDE047" stroke="#DC2626" stroke-width="8" stroke-linejoin="round"/>
+      <text x="0" y="16" text-anchor="middle" font-family="Kantumruy Pro" font-weight="700" font-size="54" fill="#DC2626">ផ្ទុះ!</text></g>
+    <g class="smoke">${[0, 1, 2, 3, 4].map(() => '<circle r="30" fill="#CBD5E1"/>').join('')}</g>
+    <g class="qm">${[0, 1, 2].map(i => `<text font-family="Arial Black" font-weight="900" font-size="${70 - i * 12}" fill="#E8590C" stroke="#fff" stroke-width="4" paint-order="stroke">?</text>`).join('')}</g>
+    <g class="think" opacity="0"><circle cx="-60" cy="40" r="10" fill="#fff"/><circle cx="-30" cy="10" r="16" fill="#fff"/>
+      <g fill="#fff"><ellipse cx="60" cy="-80" rx="110" ry="70"/><ellipse cx="0" cy="-60" rx="60" ry="46"/><ellipse cx="120" cy="-60" rx="60" ry="46"/></g>
+      <g transform="translate(14,-128) scale(4)" fill="none" stroke="#1F3A5F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON.help}</g>
+      <path d="M10,-125 L110,-35 M110,-125 L10,-35" stroke="#DC2626" stroke-width="9" opacity=".9" stroke-linecap="round"/></g>
+    <g class="bulb" opacity="0"><g stroke="#FBBF24" stroke-width="7" stroke-linecap="round">${[0, 1, 2, 3, 4, 5, 6, 7].map(i => { const a = i * Math.PI / 4; return `<line x1="${Math.cos(a) * 62}" y1="${Math.sin(a) * 62}" x2="${Math.cos(a) * 84}" y2="${Math.sin(a) * 84}"/>`; }).join('')}</g>
+      <circle r="44" fill="#FDE047" stroke="#F59E0B" stroke-width="5"/><rect x="-18" y="38" width="36" height="22" rx="5" fill="#94A3B8"/></g>`;
+  const q = c => svg.querySelector(c);
+  const lay = c => [...svg.querySelectorAll(c + ' > g')].map(g => ({ g, x: +g.dataset.x, y: +(g.dataset.y || 0) }));
+  svg._s = { far: lay('.far'), mid: lay('.mid'), near: lay('.near'), clouds: lay('.clouds'), bike: q('.bike'), ride: q('.ride'), stand: q('.stand'), wR: q('.bike .wR'), wF: q('.bike .wF'),
+    mech: q('.mech'), mbike: q('.mbike'), mride: q('.mride'), mkneel: q('.mkneel'), mstand: q('.mstand'), bang: q('.bang'), smoke: [...svg.querySelectorAll('.smoke circle')],
+    qm: [...svg.querySelectorAll('.qm text')], think: q('.think'), bulb: q('.bulb'), sparks: q('.sparks') };
+  svg._s.sparks.innerHTML = [0, 1, 2, 3, 4, 5].map(() => '<path d="M0,-16 L4,-4 L16,0 L4,4 L0,16 L-4,4 L-16,0 L-4,-4Z" fill="#FDE047"/>').join('');
+}
+const wrapX = (x, s, f, P = 2600, m = 320) => ((x - s * f) % P + P) % P - m;
+function drawWorld(svg, w) {
+  const S = svg._s;
+  S.far.forEach(o => o.g.setAttribute('transform', `translate(${wrapX(o.x, w.s, 0.12)},0)`));
+  S.mid.forEach(o => o.g.setAttribute('transform', `translate(${wrapX(o.x, w.s, 0.5)},0)`));
+  S.near.forEach(o => o.g.setAttribute('transform', `translate(${wrapX(o.x, w.s, 1)},0)`));
+  S.clouds.forEach(o => o.g.setAttribute('transform', `translate(${wrapX(o.x, w.s * 0.04 + w.t * 10, 1)},${o.y})`));
+  const ang = w.s / (46 * SC) * 180 / Math.PI;
+  S.wF.setAttribute('transform', `translate(120,-46) rotate(${ang})`);
+  const fl = w.flat;
+  S.wR.setAttribute('transform', `translate(-110,${-46 + 9 * fl}) rotate(${ang}) scale(${1 + 0.06 * fl},${1 - 0.2 * fl})`);
+  const bob = w.speed * Math.sin(w.t * 13) * 2;
+  S.bike.setAttribute('transform', `translate(${BX + w.shx},${BY + w.shy + bob}) scale(${SC}) rotate(${w.tilt} 120 0)`);
+  S.ride.setAttribute('opacity', w.rider === 'ride' ? 1 : 0);
+  S.stand.setAttribute('opacity', w.rider === 'ride' ? 0 : 1);
+  S.stand.setAttribute('transform', `translate(${BX + 300 * SC + w.shx},${BY + w.hop}) scale(${SC})`);
+  const face = S.stand;
+  face.querySelector('.mouth').setAttribute('d', w.mood === 'happy' ? 'M-13,-293 Q0,-278 13,-293' : 'M-11,-286 Q0,-296 11,-286');
+  face.querySelector('.bl').setAttribute('y2', w.mood === 'happy' ? -329 : -334);
+  face.querySelector('.br').setAttribute('y2', w.mood === 'happy' ? -329 : -334);
+  face.querySelector('.armR').setAttribute('transform', w.phone ? `rotate(${-100 * w.phone} 36 -258)` : '');
+  face.querySelector('.ph').setAttribute('opacity', w.phone > 0.5 ? 1 : 0);
+  face.querySelector('.armL').setAttribute('transform', w.scratch ? `rotate(${(150 + 10 * Math.sin(w.t * 9)) * w.scratch} -36 -258)` : '');
+  // bang + smoke
+  S.bang.setAttribute('opacity', w.bang);
+  S.bang.setAttribute('transform', `translate(${BX - 110 * SC},${BY - 120}) scale(${w.bangS}) rotate(${w.bangR})`);
+  S.smoke.forEach((c, i) => { const a = i * 1.3, R = 40 + 120 * w.smoke; c.setAttribute('cx', BX - 110 * SC + Math.cos(a) * R - 60 * w.smoke); c.setAttribute('cy', BY - 30 - Math.abs(Math.sin(a)) * R * 0.6); c.setAttribute('r', 20 + 30 * w.smoke); c.setAttribute('opacity', w.smoke > 0 && w.smoke < 1 ? 0.7 * (1 - w.smoke) : 0); });
+  const hx = BX + 300 * SC, hy = BY - 340 * SC;
+  S.qm.forEach((m, i) => { const q = w.qm[i] || 0; m.setAttribute('x', hx + [-80, 70, 10][i]); m.setAttribute('y', hy - 20 - [10, 40, 90][i] - 10 * Math.sin(w.t * 3 + i)); m.setAttribute('opacity', q); m.setAttribute('transform', `rotate(${[-14, 12, 0][i]} ${hx} ${hy})`); });
+  S.think.setAttribute('opacity', w.think); S.think.setAttribute('transform', `translate(${hx - 230},${hy - 40}) scale(${0.6 + 0.4 * back(w.think)})`);
+  S.bulb.setAttribute('opacity', w.bulb); S.bulb.setAttribute('transform', `translate(${hx},${hy - 90}) scale(${0.5 + 0.5 * back(w.bulb)})`);
+  // the HRC mechanic
+  S.mech.setAttribute('transform', `translate(${w.mx},${BY}) scale(${SC})`);
+  const mang = w.mx / (46 * SC) * 180 / Math.PI;
+  S.mbike.querySelector('.wF').setAttribute('transform', `translate(120,-46) rotate(${mang})`);
+  S.mbike.querySelector('.wR').setAttribute('transform', `translate(-110,-46) rotate(${mang})`);
+  S.mride.setAttribute('opacity', w.mpose === 'ride' ? 1 : 0);
+  S.mkneel.setAttribute('opacity', w.mpose === 'kneel' ? 1 : 0);
+  S.mkneel.setAttribute('transform', `translate(${560 - 200},0)`);
+  S.mkneel.querySelector('.warm').setAttribute('transform', `rotate(${w.mpose === 'kneel' ? 8 * Math.sin(w.t * 10) : 0} -30 -186)`);
+  S.mstand.setAttribute('opacity', w.mpose === 'wave' ? 1 : 0);
+  S.mstand.setAttribute('transform', `translate(${560 - 330},0)`);
+  S.mstand.querySelector('.armR').setAttribute('transform', `rotate(${-150 + 22 * Math.sin(w.t * 9)} 36 -258)`);
+  S.mstand.querySelector('.mouth').setAttribute('d', 'M-13,-293 Q0,-278 13,-293');
+  S.mstand.querySelector('.bl').setAttribute('y2', -329); S.mstand.querySelector('.br').setAttribute('y2', -329);
+  [...S.sparks.children].forEach((p, i) => { const a = i * 1.05 + w.t * 0.8, R = 70 + 20 * Math.sin(w.t * 4 + i); const tw = w.spark * (0.5 + 0.5 * Math.sin(w.t * 9 + i * 2));
+    p.setAttribute('transform', `translate(${BX - 110 * SC + Math.cos(a) * R},${BY - 46 * SC + Math.sin(a) * R}) scale(${0.6 + tw})`); p.setAttribute('opacity', tw); });
+}
+// story timing shared by both scenes: when the tire bursts, where the road stopped
+function storyTimes() {
+  const s1 = T.scenes[0], s2 = T.scenes[1];
+  const cue1 = k => s1.lead + (s1.cues[k] ?? k * 3);
+  const TB = cue1(2) - 0.6, D = 1.6;
+  return { TB, D, S1END: V * TB + V * D / 2, s2 };
+}
+function storyFX(ctx, part) {
+  const svg = ctx.sec.querySelector('svg.world');
+  if (!svg._s) buildStory(svg);
+  const lt = ctx.lt, { TB, D, S1END } = storyTimes();
+  const w = { t: ctx.s.start + lt, s: 0, speed: 0, flat: 0, tilt: 0, shx: 0, shy: 0, hop: 0, rider: 'ride', mood: 'worried', phone: 0, scratch: 0,
+              bang: 0, bangS: 0, bangR: 0, smoke: 0, qm: [0, 0, 0], think: 0, bulb: 0, mx: -2400, mpose: 'ride', spark: 0 };
+  if (part === 1) {
+    const p = clamp((lt - TB) / D);
+    w.s = lt < TB ? V * lt : V * TB + V * D * (p - p * p / 2);
+    w.speed = lt < TB ? 1 : 1 - p;
+    if (lt >= TB) {
+      const b = lt - TB;
+      w.flat = ease(b / 0.5);
+      w.tilt = -3 * w.flat + (b < D ? 4 * Math.sin(b * 11) * (1 - b / D) : 0);
+      const sh = b < 0.45 ? (1 - b / 0.45) : 0; w.shx = sh * 9 * Math.sin(b * 90); w.shy = sh * 7 * Math.cos(b * 77);
+      w.bang = b < 1.4 ? 1 : clamp(1 - (b - 1.4) / 0.4); w.bangS = back(b / 0.35); w.bangR = -8 + 6 * Math.sin(b * 20);
+      w.smoke = clamp(b / 1.8);
+      const off = TB + D + 0.2;
+      if (lt >= off) { w.rider = 'stand'; w.hop = -40 * Math.sin(clamp((lt - off) / 0.35) * Math.PI); }
+      const c3 = ctx.cue(3);
+      w.qm = [0, 1, 2].map(i => back((lt - c3 - 0.1 - i * 0.25) / 0.4) * clamp((lt - c3 - i * 0.25) / 0.2));
+      w.scratch = clamp((lt - c3) / 0.5);
+      w.think = clamp((lt - c3 - 1.2) / 0.4);
+    }
+  } else {
+    w.s = S1END; w.flat = 1; w.tilt = -3; w.rider = 'stand';
+    const c = ctx.cue;
+    w.mood = lt >= c(0) + 0.2 ? 'happy' : 'worried';
+    w.scratch = clamp(1 - lt / 0.6);
+    w.qm = [0, 1, 2].map(() => clamp(1 - lt / 0.5));
+    w.bulb = clamp((lt - c(0) - 0.1) / 0.35) * clamp((c(1) + 0.6 - lt) / 0.4);
+    w.phone = clamp((lt - c(1)) / 0.4) * clamp((c(2) + 0.2 - lt) / 0.4);
+    // mechanic rides in, stops behind the bike, kneels at the rear wheel, then stands and waves
+    const PARK = BX - 560 * SC, tr = c(4) + 0.4;
+    const arrive = ease((lt - c(2)) / 2.4);
+    w.mx = lt < c(2) ? -2400 : lerp(-500, PARK, arrive);
+    if (lt >= c(3) + 0.1) w.mpose = 'kneel';
+    if (lt >= c(4) - 0.2) w.mpose = 'wave';
+    w.flat = 1 - ease((lt - c(3) - 0.8) / 2.2);
+    w.tilt = -3 * w.flat;
+    w.spark = clamp((lt - c(3) - 0.3) / 0.3) * clamp((c(4) - 0.3 - lt) / 0.3);
+    if (lt >= tr - 0.3) { w.rider = 'ride'; w.mood = 'happy'; }
+    const D2 = 1.8, q = lt - tr, ds = q <= 0 ? 0 : (q < D2 ? V * q * q / (2 * D2) : V * (D2 / 2 + q - D2));
+    w.s = S1END + ds; w.speed = clamp(q / D2);
+    if (lt >= c(4) - 0.2) w.mx = PARK - ds;
+    if (lt >= c(4) - 0.2 && lt < tr) w.mpose = 'wave';
+    // phone close-up
+    const ph = ctx.sec.querySelector('.sphone');
+    const pin = ease((lt - c(1) - 0.1) / 0.6), pout = ease((lt - c(2) + 0.4) / 0.5);
+    ph.style.transform = `translate(${-(1 - pin) * 900 - pout * 900}px,${Math.sin(lt * 1.4) * 6}px) scale(.88) rotate(${-3 + 3 * pin}deg)`;
+    ph.style.opacity = lt > c(1) && lt < c(2) + 0.2 ? 1 : 0;
+    runPhone(ph.querySelector('.screen'), ctx);
+    const pop = (sel, t0, t1) => { const e = ctx.sec.querySelector(sel); const o = Math.min(clamp((lt - t0) / 0.3), clamp((t1 - lt) / 0.4)); e.style.opacity = o; e.style.transform = `scale(${0.7 + 0.3 * back((lt - t0) / 0.45)})`; };
+    pop('.b-eta', c(2) + 1.4, c(3) - 0.2);
+    pop('.b-price', c(3) + 0.6, c(5) - 0.3);
+    pop('.b-pay', c(3) + 1.5, c(5) - 0.3);
+    const tg = ctx.sec.querySelector('.tagline'), to = clamp((lt - c(5) + 0.2) / 0.7);
+    tg.style.opacity = to; tg.style.transform = `scale(${1.06 - 0.06 * ease(to)})`;
+  }
+  drawWorld(svg, w);
+}
+
+// ====================================================================== per-scene effects
+const FX = {
+  story1: ctx => storyFX(ctx, 1),
+  story2: ctx => storyFX(ctx, 2),
+  flow: ctx => runRoad(ctx.sec.querySelector('.road-wrap'), ctx, [1, 2, 3, 4, 5, 6].map(k => ctx.cue(k) + 0.3)),
+  recap: ctx => {
+    const c1 = ctx.cue(1), c2 = ctx.cue(2), span = (c2 - c1) / 6;
+    const times = [0, 1, 2, 3, 4, 5].map(k => 1.4 + (c1 - 1.4) * k / 6);
+    runRoad(ctx.sec.querySelector('.road-wrap'), ctx, times, [0, 1, 2, 3, 4, 5].map(k => c1 + span * (k + 0.6)));
+  },
+  outro: ctx => { const b = ctx.sec.querySelector('#outro-btn'); const g = 0.5 + 0.5 * Math.sin(ctx.lt * 3);
+    b.style.boxShadow = `0 0 0 ${18 + 14 * g}px rgba(232,89,12,${0.22 - 0.08 * g}),0 0 0 ${46 + 20 * g}px rgba(232,89,12,.07),0 25px 60px rgba(0,0,0,.45)`; },
+};
+document.querySelectorAll('.screen[data-ph]').forEach(scr => {
+  const id = scr.dataset.ph; if (id === 'story2') return;
+  const prev = FX[id];
+  FX[id] = ctx => { const ph = ctx.sec.querySelector('.phone .phone-in'); ph.style.transform = `translateY(${Math.sin(ctx.lt * 0.9) * 5}px) rotate(${Math.sin(ctx.lt * 0.6) * 0.4}deg)`; runPhone(scr, ctx); if (prev) prev(ctx); };
+});
+window.FX = FX;
+
+// flow bar (the six steps at the top of the step slides)
+const fb = document.getElementById('flowbar');
+fb.innerHTML = STOPS.map(([, km], i) => `${i ? '<span class="ln"></span>' : ''}<span class="fp"><i>${i + 1}</i>${km}</span>`).join('');
+window.setPhase = n => [...fb.querySelectorAll('.fp')].forEach((e, i) => { e.className = 'fp' + (i + 1 < n ? ' done' : i + 1 === n ? ' cur' : ''); if (i + 1 < n) e.firstChild.textContent = '✓'; else e.firstChild.textContent = i + 1; });
+
+// background: soft drifting map blocks (like the app's map)
+const bgEl = document.getElementById('bg');
+const BLK = []; { const r = rnd(7); for (let gx = 0; gx < 12; gx++) for (let gy = 0; gy < 7; gy++) if (r() < 0.55) BLK.push({ x: gx * 190 - 100, y: gy * 170 - 60, w: 120 + r() * 50, h: 100 + r() * 40 }); }
+window.drawBg = t => { const ox = (t * 6) % 190, oy = (t * 3) % 170;
+  bgEl.innerHTML = BLK.map(b => `<rect x="${(b.x - ox).toFixed(1)}" y="${(b.y + oy).toFixed(1)}" width="${b.w.toFixed(0)}" height="${b.h.toFixed(0)}" rx="18" fill="#1B2D47" opacity=".55"/>`).join(''); };
+</script>
+</body>
+</html>

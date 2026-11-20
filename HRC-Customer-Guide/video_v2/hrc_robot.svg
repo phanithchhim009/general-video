@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 380" width="300" height="380">
+  <!-- HRC, the Help Road Cambodia assistant robot (roadside mechanic theme, brand orange #E8590C + navy #1F3A5F).
+       Animated part ids (same as the GRC robot so the renderer is shared): #r-antenna-light, #r-antenna-glow, #r-wifi,
+       #r-eyes, #r-mouth, #r-arm-r (rotates around 239,222), #r-shadow -->
+  <defs>
+    <linearGradient id="hr-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FB923C"/><stop offset="1" stop-color="#E8590C"/></linearGradient>
+    <linearGradient id="hr-skirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E4B70"/><stop offset="1" stop-color="#1F3A5F"/></linearGradient>
+    <linearGradient id="hr-head" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E7EDF5"/></linearGradient>
+    <linearGradient id="hr-cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E4B70"/><stop offset="1" stop-color="#1F3A5F"/></linearGradient>
+    <radialGradient id="hr-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FDBA74"/><stop offset="1" stop-color="#FDBA74" stop-opacity="0"/></radialGradient>
+    <radialGradient id="hr-eye" cx="0.5" cy="0.4" r="0.6"><stop offset="0" stop-color="#FFF7ED"/><stop offset="1" stop-color="#FDBA74"/></radialGradient>
+  </defs>
+  <ellipse id="r-shadow" cx="150" cy="366" rx="78" ry="10" fill="#000" opacity="0.28"/>
+
+  <!-- antenna with help-signal waves -->
+  <rect x="146" y="14" width="8" height="34" rx="4" fill="#1F3A5F"/>
+  <circle id="r-antenna-glow" cx="150" cy="12" r="22" fill="url(#hr-glow)"/>
+  <circle id="r-antenna-light" cx="150" cy="12" r="9" fill="#FB923C" stroke="#fff" stroke-width="3"/>
+  <g id="r-wifi" fill="none" stroke="#FDBA74" stroke-linecap="round" stroke-width="4">
+    <path d="M128 0 a30 30 0 0 1 44 0"/>
+    <path d="M118 -12 a44 44 0 0 1 64 0" opacity="0.7"/>
+    <path d="M108 -24 a58 58 0 0 1 84 0" opacity="0.4"/>
+  </g>
+
+  <!-- ear pieces -->
+  <rect x="34" y="100" width="24" height="52" rx="11" fill="#E8590C"/>
+  <rect x="242" y="100" width="24" height="52" rx="11" fill="#E8590C"/>
+
+  <!-- head + face screen -->
+  <rect x="50" y="62" width="200" height="132" rx="48" fill="url(#hr-head)"/>
+  <!-- mechanic cap: crown + orange brim + HRC wrench mark -->
+  <path d="M62 92 C62 40 238 40 238 92 Z" fill="url(#hr-cap)"/>
+  <path d="M56 90 Q150 78 268 96 Q266 108 252 108 Q150 96 60 104 Q52 100 56 90 Z" fill="#E8590C"/>
+  <g transform="translate(150 66) rotate(-35)">
+    <rect x="-3.5" y="-12" width="7" height="22" rx="3" fill="#FDBA74"/>
+    <circle cx="0" cy="-14" r="7.5" fill="#FDBA74"/><rect x="-3" y="-22" width="6" height="9" fill="#2E4B70"/>
+  </g>
+  <rect x="70" y="104" width="160" height="76" rx="28" fill="#0F1E33"/>
+  <g id="r-eyes">
+    <ellipse cx="114" cy="128" rx="15" ry="16" fill="url(#hr-eye)"/>
+    <ellipse cx="186" cy="128" rx="15" ry="16" fill="url(#hr-eye)"/>
+    <circle cx="119" cy="122" r="4.5" fill="#fff"/>
+    <circle cx="191" cy="122" r="4.5" fill="#fff"/>
+  </g>
+  <circle cx="88" cy="160" r="8" fill="#FB923C" opacity="0.45"/>
+  <circle cx="212" cy="160" r="8" fill="#FB923C" opacity="0.45"/>
+  <rect id="r-mouth" x="134" y="157" width="32" height="6" rx="3" fill="#FDBA74"/>
+
+  <!-- neck + body + base -->
+  <rect x="130" y="190" width="40" height="18" rx="6" fill="#1F3A5F"/>
+  <path d="M84 300 L216 300 L240 346 L60 346 Z" fill="url(#hr-skirt)"/>
+  <rect x="78" y="204" width="144" height="112" rx="40" fill="url(#hr-body)"/>
+  <!-- reflective safety stripe -->
+  <rect x="80" y="290" width="140" height="10" fill="#FEF3C7" opacity="0.85"/>
+  <!-- badge: HRC -->
+  <rect x="100" y="222" width="100" height="56" rx="16" fill="#fff" opacity="0.97"/>
+  <g transform="translate(150 238)">
+    <circle r="9" fill="#E8590C"/><path d="M-4 0 h8 M0 -4 v8" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="150" y="270" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="17" fill="#1F3A5F" letter-spacing="2">HRC</text>
+
+  <!-- hover base -->
+  <rect x="104" y="340" width="92" height="14" rx="7" fill="#1F3A5F"/>
+  <ellipse cx="150" cy="356" rx="40" ry="5" fill="#FDBA74" opacity="0.75"/>
+
+  <!-- left arm holds a wrench -->
+  <g id="r-arm-l">
+    <rect x="44" y="214" width="34" height="88" rx="17" fill="#1F3A5F"/>
+    <circle cx="61" cy="306" r="17" fill="#2E4B70"/>
+    <g transform="translate(58 300) rotate(-28)">
+      <rect x="-6" y="-58" width="12" height="62" rx="6" fill="#CBD5E1" stroke="#fff" stroke-width="2"/>
+      <path d="M-15 -66 a16 16 0 1 1 30 0 l-7 4 l-4 -9 h-8 l-4 9 z" fill="#CBD5E1" stroke="#fff" stroke-width="2"/>
+    </g>
+  </g>
+  <!-- right arm (waves; rotates around the shoulder 239,222) -->
+  <g id="r-arm-r">
+    <rect x="222" y="214" width="34" height="88" rx="17" fill="#1F3A5F"/>
+    <circle cx="239" cy="306" r="17" fill="#2E4B70"/>
+  </g>
+</svg>

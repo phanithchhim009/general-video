@@ -1,0 +1,111 @@
+[
+ {
+  "id": "story1",
+  "robot": "off",
+  "say": "ព្រឹកមួយ ផានិតកំពុងជិះម៉ូតូទៅធ្វើការ ដូចសព្វដង។ ស្រាប់តែ ផ្ទុះ! កង់ម៉ូតូបែក នៅកណ្តាលផ្លូវ។ ជុំវិញខ្លួន គ្មានហាងជួសជុលសោះ ហើយផានិតមិនដឹងថាត្រូវធ្វើយ៉ាងម៉េចទេ។",
+  "sub": "One morning, Phanith is riding to work as usual. Suddenly — bang! A tire bursts in the middle of the road. There is no repair shop anywhere around, and Phanith doesn't know what to do."
+ },
+ {
+  "id": "story2",
+  "robot": "off",
+  "say": "ប៉ុន្តែ ផានិតនឹកឃើញកម្មវិធី HRC។ គាត់បើកទូរស័ព្ទ ហើយចុចប៊ូតុង ជួយខ្ញុំ។ ក្នុងរយៈពេលតែប៉ុន្មាននាទី ជាងដែលនៅជិតបំផុត ក៏មកដល់។ ជួសជុលរួចរាល់ តម្លៃច្បាស់លាស់ ហើយបង់ប្រាក់ងាយស្រួល។ ផានិតបន្តដំណើរ ដោយសុវត្ថិភាព។ Help Road Cambodia ជំនួយលើផ្លូវ គ្រប់ពេល គ្រប់ទីកន្លែង។",
+  "sub": "But then Phanith remembers the HRC app. Phanith opens the phone and taps \"Help me\". In just a few minutes, the nearest mechanic arrives. Fixed, with a clear price and an easy payment. Phanith rides on safely. Help Road Cambodia — roadside help, any time, anywhere."
+ },
+ {
+  "id": "intro",
+  "robot": "hero",
+  "say": "សួស្តី! ខ្ញុំឈ្មោះ HRC ជាជំនួយការរបស់ Help Road Cambodia។ ពេលម៉ូតូ ឬឡានរបស់អ្នកខូចនៅតាមផ្លូវ កម្មវិធី HRC ជួយអ្នកហៅជាងជួសជុលដែលនៅជិតបំផុត មកដល់កន្លែងរបស់អ្នក។ ក្នុងវីដេអូនេះ ខ្ញុំនឹងបង្ហាញអ្នកមួយជំហានម្តងៗ ពីរបៀបប្រើកម្មវិធីសម្រាប់អតិថិជន ចាប់ពីការចុះឈ្មោះ រហូតដល់ការបង់ប្រាក់ និងវាយតម្លៃជាង។",
+  "sub": "Hello! I'm HRC, the assistant of Help Road Cambodia. When your motorbike or car breaks down on the road, the HRC app brings the nearest mechanic to where you are. In this video I'll show you, step by step, how to use the customer app — from signing up to paying and rating the mechanic."
+ },
+ {
+  "id": "flow",
+  "say": "មុននឹងចាប់ផ្តើម សូមមើលដំណើរការទាំងមូលជាមុនសិន។ ទីមួយ ចុះឈ្មោះដោយប្រើលេខទូរស័ព្ទ។ ទីពីរ ស្នើសុំជំនួយ ដោយជ្រើសរើសបញ្ហា និងទីតាំង។ ទីបី ជាងទទួលការងារ ហើយធ្វើដំណើរមករកអ្នក។ ទីបួន ជាងពិនិត្យ ហើយជួសជុល បន្ទាប់ពីអ្នកយល់ព្រមលើតម្លៃ។ ទីប្រាំ បង់ប្រាក់តាម KHQR ឬសាច់ប្រាក់។ ហើយទីប្រាំមួយ វាយតម្លៃជាង។",
+  "sub": "Before we start, let's look at the whole process. One: sign up with your phone number. Two: request help by choosing the problem and your location. Three: a mechanic accepts the job and comes to you. Four: the mechanic checks and repairs after you agree to the price. Five: pay by KHQR or in cash. And six: rate the mechanic."
+ },
+ {
+  "id": "start",
+  "say": "ជំហានទីមួយ ដំឡើងកម្មវិធី HRC នៅលើទូរស័ព្ទរបស់អ្នក ហើយបើកវា។ អេក្រង់ណែនាំ នឹងបង្ហាញពីអ្វីដែលកម្មវិធីអាចធ្វើបាន សូមចុច បន្ត។ បន្ទាប់មក សូមអនុញ្ញាតឱ្យកម្មវិធីប្រើទីតាំង ដើម្បីឱ្យជាងរកអ្នកឃើញ និងគណនាថ្លៃចម្ងាយបានត្រឹមត្រូវ។ ហើយអនុញ្ញាតការជូនដំណឹង ដើម្បីដឹងភ្លាមៗ ពេលជាងទទួលការងារ ឬមកដល់។",
+  "sub": "Step one: install the HRC app on your phone and open it. The intro screens show what the app can do — tap \"Continue\". Then allow the app to use your location, so the mechanic can find you and the distance fee is correct. And allow notifications, so you know right away when a mechanic accepts or arrives."
+ },
+ {
+  "id": "login",
+  "say": "បន្ទាប់មក ចូលប្រើប្រាស់។ សូមបញ្ចូលលេខទូរស័ព្ទរបស់អ្នក ហើយចុច ទទួលលេខកូដ OTP។ អ្នកនឹងទទួលបានសារ SMS ដែលមានលេខកូដ 6 ខ្ទង់។ បញ្ចូលលេខកូដនោះ រួចចុច បញ្ជាក់។ បើអ្នកប្រើលេខទូរស័ព្ទបរទេស អ្នកក៏អាចចូលតាម Telegram បានដែរ។",
+  "sub": "Next, sign in. Enter your phone number and tap \"Get OTP code\". You will receive an SMS with a 6-digit code. Type the code, then tap \"Verify\". If you use a foreign phone number, you can also sign in with Telegram."
+ },
+ {
+  "id": "setup",
+  "say": "ពេលចូលលើកដំបូង សូមបំពេញព័ត៌មានខ្លីៗ។ វាយឈ្មោះរបស់អ្នក ហើយជ្រើសរើសយានយន្តដែលអ្នកប្រើញឹកញាប់ គឺម៉ូតូ រ៉ឺម៉ក ឬឡាន។ គូសធីក យល់ព្រមលើលក្ខខណ្ឌប្រើប្រាស់ រួចចុច ចាប់ផ្តើមប្រើ។",
+  "sub": "The first time you sign in, fill in a few details. Type your name and choose the vehicle you use most: motorbike, tuk-tuk or car. Tick to accept the terms of use, then tap \"Start\"."
+ },
+ {
+  "id": "home",
+  "say": "នេះគឺជាទំព័រដើម។ ប៊ូតុងពណ៌ទឹកក្រូចធំ ជួយខ្ញុំ នៅកណ្តាល គឺសម្រាប់ហៅជាងដែលនៅជិតអ្នកបំផុត។ ខាងក្រោម ជាសេវារហ័ស ដូចជា ប៉ះកង់ ម៉ាស៊ីន សាំង និងស្ទូច ដែលអ្នកអាចចុចបានភ្លាមៗ។ ផ្លាកនៅខាងលើ ប្រាប់ថាឥឡូវនេះ ជាតម្លៃថ្ងៃ ឬតម្លៃយប់។ ហើយរបារខាងក្រោម នាំអ្នកទៅកាន់ ប្រវត្តិ ដំណឹង និងគណនី។",
+  "sub": "This is the home screen. The big orange \"Help me\" button in the middle calls the mechanic nearest to you. Below are the quick services — tire, engine, fuel and tow — that you can tap straight away. The badge at the top tells you whether day or night prices apply now. And the bar at the bottom takes you to History, Alerts and Account."
+ },
+ {
+  "id": "request",
+  "say": "ពេលចុច ជួយខ្ញុំ អ្នកនឹងឃើញទំព័រ ស្នើសុំជំនួយ ដែលមានបីជំហាន។ ដំបូង ជ្រើសរើសយានយន្តរបស់អ្នក។ បន្ទាប់មក ជ្រើសរើសបញ្ហា ដូចជា ប៉ះកង់ ដូរកង់ក្នុង ម៉ាស៊ីនមិនឆេះ ឬអស់សាំង។ តម្លៃចាប់ផ្តើមរបស់សេវានីមួយៗ បង្ហាញនៅក្រោមឈ្មោះ។ រួចចុច បន្ទាប់។",
+  "sub": "When you tap \"Help me\", the \"Request help\" page opens with three steps. First, choose your vehicle. Then choose the problem, such as a flat tire, an inner tube change, an engine that won't start, or no fuel. Each service shows its starting price under its name. Then tap \"Next\"."
+ },
+ {
+  "id": "location",
+  "say": "ជំហានទីបី គឺបញ្ជាក់ទីតាំង។ កម្មវិធីប្រើ GPS ដើម្បីដាក់ចំណុចពណ៌ទឹកក្រូច នៅកន្លែងដែលអ្នកនៅ។ អ្នកអាចសរសេរចំណាំសម្រាប់ជាង ឧទាហរណ៍ នៅមុខវត្ត ឬក្បែរស្ថានីយ៍សាំង ហើយអាចថតរូបកន្លែងនោះផងដែរ។ រួចចុច បញ្ជាក់ទីតាំង។ សូមចំណាំថា សេវានេះមាន តែនៅក្នុងតំបន់ដែល HRC បើកដំណើរការប៉ុណ្ណោះ។",
+  "sub": "The third step is to confirm your location. The app uses GPS to put the orange pin where you are. You can write a note for the mechanic, for example \"in front of the pagoda\" or \"next to the fuel station\", and you can take a photo of the place. Then tap \"Confirm location\". Note that the service works only inside the areas where HRC operates."
+ },
+ {
+  "id": "price",
+  "say": "មុនពេលហៅជាង អ្នកនឹងឃើញតម្លៃប៉ាន់ស្មានយ៉ាងច្បាស់។ ប្រអប់នេះ ប្រាប់តម្លៃអតិបរមា ដែលអ្នកនឹងបង់សម្រាប់សេវា ឧទាហរណ៍ ប៉ះកង់ម៉ូតូពេលថ្ងៃ មិនលើសពី $4.50។ តម្លៃចាប់ផ្តើម រួមបញ្ចូលចម្ងាយ 5 គីឡូម៉ែត្រ ហើយគ្រឿងបន្លាស់មិនរួមបញ្ចូលទេ ជាងត្រូវសុំការយល់ព្រមពីអ្នកជាមុនសិន។ អ្នកអាចប្តូរវិធីបង់ប្រាក់ រវាងសាច់ប្រាក់ និង KHQR។ ពេលរួចរាល់ ចុច ហៅជាងឥឡូវ។",
+  "sub": "Before you call a mechanic, you see a clear price estimate. This box shows the most you will pay for the service — for example, a motorbike tire patch by day costs no more than $4.50. The starting price includes 5 km of distance; parts are not included, and the mechanic must ask for your approval first. You can switch the payment method between cash and KHQR. When ready, tap \"Call a mechanic now\"."
+ },
+ {
+  "id": "search",
+  "say": "ឥឡូវនេះ ប្រព័ន្ធកំពុងស្វែងរកជាង ដែលនៅជិតអ្នកបំផុត។ ជាងម្នាក់ៗមានពេល 30 វិនាទី ដើម្បីទទួលការងារ បើមិនទទួលទេ ប្រព័ន្ធនឹងផ្ញើទៅជាងបន្ទាប់ដោយស្វ័យប្រវត្តិ។ ពេលកំពុងស្វែងរក អ្នកអាចបោះបង់បាន ដោយឥតគិតថ្លៃ។",
+  "sub": "Now the system is looking for the mechanic nearest to you. Each mechanic has 30 seconds to accept the job; if they don't, the system automatically offers it to the next one. While it is searching, you can cancel for free."
+ },
+ {
+  "id": "enroute",
+  "say": "ពេលជាងទទួលការងារ អ្នកនឹងឃើញឈ្មោះ ពិន្ទុវាយតម្លៃ និងសញ្ញាផ្ទៀងផ្ទាត់របស់ជាង។ នៅលើផែនទី អ្នកអាចតាមដានជាងដែលកំពុងធ្វើដំណើរមក និងពេលវេលាមកដល់ប្រហែល។ ចុច ហៅ ឬ Chat ដើម្បីនិយាយជាមួយជាង។ ហើយប៊ូតុង ប្រាប់គ្រួសារ អនុញ្ញាតឱ្យអ្នកចែករំលែកដំណើរនេះ ទៅកាន់មនុស្សជាទីស្រលាញ់។",
+  "sub": "When a mechanic accepts, you see their name, rating and verified badge. On the map you can follow the mechanic on the way and the estimated arrival time. Tap \"Call\" or \"Chat\" to talk to the mechanic. And the \"Tell family\" button lets you share this trip with your loved ones."
+ },
+ {
+  "id": "quote",
+  "say": "ពេលជាងមកដល់ ជាងនឹងថតរូបមុនពេលជួសជុល ដើម្បីការពារទាំងអ្នក និងជាង។ បើត្រូវការគ្រឿងបន្លាស់ ជាងនឹងផ្ញើការស្នើតម្លៃមកអ្នក។ អ្នកនឹងឃើញរូបថត មូលហេតុ តម្លៃគ្រឿងនីមួយៗ និងតម្លៃសរុបថ្មី។ បើយល់ព្រម ចុច យល់ព្រម។ បើមិនយល់ព្រម ចុច បដិសេធ ហើយប្រាប់មូលហេតុ។ ជាងមិនអាចដូរគ្រឿងបន្លាស់បានទេ បើអ្នកមិនទាន់យល់ព្រម។",
+  "sub": "When the mechanic arrives, they take a photo before the repair, to protect both you and the mechanic. If parts are needed, the mechanic sends you a price request. You see the photo, the reason, the price of each part and the new total. If you agree, tap \"Approve\". If not, tap \"Decline\" and give a reason. The mechanic cannot change any part until you approve."
+ },
+ {
+  "id": "pay",
+  "say": "ពេលជួសជុលរួចរាល់ ដល់ពេលបង់ប្រាក់។ បើអ្នកជ្រើសរើស KHQR សូមស្កេនកូដ QR នេះ ជាមួយ ABA ឬធនាគារដទៃផ្សេងទៀត។ អ្នកក៏អាចរក្សាទុក QR ឬចុច បើក App ធនាគារ បានដែរ។ ប្រព័ន្ធនឹងបញ្ជាក់ការបង់ប្រាក់ ដោយស្វ័យប្រវត្តិ។ បើបង់ជាសាច់ប្រាក់ សូមប្រគល់ប្រាក់ឱ្យជាង ហើយជាងនឹងចុចបញ្ជាក់នៅក្នុង App។",
+  "sub": "When the repair is done, it's time to pay. If you chose KHQR, scan this QR code with ABA or any other bank. You can also save the QR or tap \"Open bank app\". The system confirms the payment automatically. If you pay in cash, hand the money to the mechanic, and the mechanic confirms it in the app."
+ },
+ {
+  "id": "rate",
+  "say": "ជំហានចុងក្រោយ គឺវាយតម្លៃជាង។ ចុចលើផ្កាយ ពីមួយដល់ប្រាំ ជ្រើសរើសអ្វីដែលល្អ ដូចជា មកលឿន ឬស្លូតបូត ហើយអាចសរសេរមតិយោបល់ រួចចុច ដាក់ការវាយតម្លៃ។ បន្ទាប់មក អ្នកនឹងទទួលបានវិក្កយបត្រ ដែលមានរូបមុន និងក្រោយពេលជួសជុល ព្រមទាំងតម្លៃលម្អិត។ អ្នកអាចទាញយកជា PDF ឬរាយការណ៍បញ្ហា បើមានអ្វីមិនប្រក្រតី។",
+  "sub": "The last step is to rate the mechanic. Tap one to five stars, pick what was good, such as \"fast\" or \"polite\", add a comment if you like, then tap \"Submit rating\". You then get a receipt with photos before and after the repair, and the full price details. You can download it as a PDF, or report a problem if something is wrong."
+ },
+ {
+  "id": "cancel",
+  "say": "តើចង់បោះបង់ការស្នើសុំមែនទេ? អ្នកអាចបោះបង់ដោយឥតគិតថ្លៃ ពេលកំពុងស្វែងរកជាង ឬក្នុងរយៈពេល 2 នាទី ក្រោយជាងទទួលការងារ។ ក្រោយពេលនោះ ឬក្រោយជាងមកដល់ អាចមានថ្លៃបោះបង់តិចតួច ដែលបង្ហាញយ៉ាងច្បាស់ មុនពេលអ្នកបញ្ជាក់។ ប្រាក់នេះ ផ្តល់ជូនជាង សម្រាប់ពេលវេលាដែលគាត់បានធ្វើដំណើរមក។",
+  "sub": "Want to cancel a request? You can cancel for free while the system is searching, or within 2 minutes after a mechanic accepts. After that, or once the mechanic has arrived, a small cancellation fee may apply, and it is shown clearly before you confirm. This money goes to the mechanic for the time spent travelling to you."
+ },
+ {
+  "id": "sos",
+  "say": "សុវត្ថិភាពរបស់អ្នក សំខាន់បំផុត។ ក្នុងករណីបន្ទាន់ សូមបើកទំព័រ ជំនួយបន្ទាន់ ហើយចុចប៊ូតុង SOS ពណ៌ក្រហម ឱ្យជាប់ 2 វិនាទី។ ក្រុម HRC និងទំនាក់ទំនងបន្ទាន់របស់អ្នក នឹងទទួលបានទីតាំងរបស់អ្នក ហើយ HRC នឹងហៅមកអ្នកភ្លាម។ អ្នកក៏អាចចុចហៅ ប៉ូលីស លេខ មួយ មួយ ប្រាំពីរ សង្គ្រោះបន្ទាន់ លេខ មួយ មួយ ប្រាំបួន ឬអគ្គិភ័យ លេខ មួយ មួយ ប្រាំបី បានដែរ។",
+  "sub": "Your safety comes first. In an emergency, open the Emergency page and hold the red SOS button for 2 seconds. The HRC team and your emergency contacts receive your location, and HRC calls you right away. You can also call the police on 117, an ambulance on 119, or the fire service on 118."
+ },
+ {
+  "id": "history",
+  "say": "នៅក្នុងផ្ទាំង ប្រវត្តិ អ្នកអាចមើលការងារទាំងអស់ ដែលធ្លាប់ស្នើសុំ ព្រមទាំងតម្លៃ និងស្ថានភាព។ ចុចលើការងារណាមួយ ដើម្បីមើលព័ត៌មានលម្អិត វិក្កយបត្រ ឬរាយការណ៍បញ្ហា។ ហើយបើត្រូវការជំនួយ សូមចូលទៅកាន់ គណនី រួចជ្រើសរើស ជំនួយ ដើម្បីអានសំណួរញឹកញាប់ ឬហៅ HRC Hotline ដែលបើក 24 ម៉ោង។",
+  "sub": "In the History tab you can see every job you have requested, with its price and status. Tap any job to see the details and the receipt, or to report a problem. And if you need help, go to Account, then Help, to read the common questions or call the HRC hotline, open 24 hours a day."
+ },
+ {
+  "id": "recap",
+  "say": "សរុបមក ការប្រើកម្មវិធី HRC មានតែប្រាំមួយជំហានប៉ុណ្ណោះ។ ចុះឈ្មោះ ស្នើសុំជំនួយ រង់ចាំជាងមកដល់ យល់ព្រមតម្លៃ និងជួសជុល បង់ប្រាក់ ហើយវាយតម្លៃ។ ចងចាំថា តម្លៃត្រូវបានបង្ហាញជាមុនជានិច្ច ហើយគ្មានគ្រឿងបន្លាស់ណាមួយ ត្រូវបានដូរ ដោយគ្មានការយល់ព្រមពីអ្នកឡើយ។",
+  "sub": "To sum up, using the HRC app takes just six steps: sign up, request help, wait for the mechanic, agree to the price and repair, pay, and rate. Remember: the price is always shown first, and no part is ever changed without your approval."
+ },
+ {
+  "id": "outro",
+  "robot": "outro",
+  "say": "អរគុណដែលបានមើល! ពេលណាអ្នកជួបបញ្ហាលើផ្លូវ គ្រាន់តែបើកកម្មវិធី ហើយចុច ជួយខ្ញុំ។ HRC នៅទីនេះ ដើម្បីជួយអ្នក គ្រប់ពេល គ្រប់ទីកន្លែង។ ធ្វើដំណើរដោយសុវត្ថិភាព!",
+  "sub": "Thank you for watching! Whenever you have trouble on the road, just open the app and tap \"Help me\". HRC is here to help you — any time, anywhere. Ride safe!"
+ }
+]
